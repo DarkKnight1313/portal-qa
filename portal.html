@@ -1,0 +1,2709 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title id="page-title">Portal del Equipo de QA</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        :root {
+            /* Default: Light Theme */
+            --color-bg-primary: #ecf0f1; /* Nube (gris muy claro) */
+            --color-bg-secondary: #ffffff; /* Blanco */
+            --color-text-primary: #2c3e50; /* Azul oscuro */
+            --color-text-secondary: #7f8c8d; /* Gris medio */
+            --color-accent: #2ecc71; /* Verde menta */
+            --color-accent-hover: #27ae60; /* Verde menta más oscuro */
+            --color-accent-text: #ffffff; /* Blanco */
+            --color-border: #e0e0e0; /* Gris claro */
+            --color-shadow: rgba(0, 0, 0, 0.08); /* Sombra suave */
+            --color-shadow-hover: rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el ratón */
+            
+            /* Sidebar */
+            --color-sidebar-bg: #2c3e50; /* Azul oscuro */
+            --color-sidebar-text: #ecf0f1; /* Nube */
+            --color-sidebar-link-hover-bg: rgba(255, 255, 255, 0.1);
+            --color-sidebar-link-active-bg: #2ecc71; /* Verde menta */
+            --color-sidebar-link-active-text: #ffffff; /* Blanco */
+            --color-sidebar-logo-text: #ffffff; /* Blanco */
+
+            /* Topbar */
+            --color-topbar-bg: #ffffff; /* Blanco */
+            --color-topbar-border: #e0e0e0; /* Gris claro */
+            --color-topbar-text: #2c3e50; /* Azul oscuro */
+
+            /* Dropdown */
+            --color-dropdown-bg: #ffffff; /* Blanco */
+            --color-dropdown-text: #2c3e50; /* Azul oscuro */
+            --color-dropdown-hover-bg: #f5f5ff; /* Gris muy claro */
+            --color-dropdown-hover-text: #2c3e50; /* Azul oscuro */
+
+            /* Mobile Menu (uses sidebar colors) - ELIMINADO */
+            /*
+            --color-mobile-menu-bg: var(--color-sidebar-bg);
+            --color-mobile-menu-text: var(--color-sidebar-text);
+            --color-mobile-menu-close-btn-hover: rgba(255, 255, 255, 0.2);
+            */
+
+            /* Icons specific colors */
+            --color-icon-red: #e74c3c; /* Rojo para bugs */
+            --color-icon-yellow: #f1c40f; /* Amarillo para QE Supplier */
+            --color-icon-green: #27ae60; /* Verde oscuro para casos de prueba */
+            --color-icon-blue: #3498db; /* Azul para QE CFT y Documentos */
+            --color-icon-purple: #9b59b6; /* Púrpura para Management y Email Templates */
+
+             /* v2.3: Pastel Colors */
+            --color-pastel-blue: #a7c7e7;
+            --color-pastel-green: #c1e1c1;
+            --color-pastel-pink: #fdd5e1;
+            --color-pastel-yellow: #fffacd;
+            --color-pastel-purple: #d8bfd8;
+            --color-pastel-orange: #ffcc99;
+            --color-pastel-grey: #d3d3d3;
+        }
+
+        /* Dark Theme */
+        body.theme-dark {
+            --color-bg-primary: #1a202c; /* Fondo oscuro principal */
+            --color-bg-secondary: #2d3748; /* Fondo de tarjetas, sidebar bg, dropdowns */
+            --color-text-primary: #e2e8f0; /* Texto claro */
+            --color-text-secondary: #a0aec0; /* Texto gris */
+            --color-accent: #2ecc71; /* Verde menta (mismo acento) */
+            --color-accent-hover: #27ae60;
+            --color-accent-text: #ffffff;
+            --color-border: #4a5568; /* Borde oscuro */
+            --color-shadow: rgba(0, 0, 0, 0.3);
+            --color-shadow-hover: rgba(0, 0, 0, 0.5);
+
+            /* Sidebar */
+            --color-sidebar-bg: #2d3748; /* Azul oscuro */
+            --color-sidebar-text: #e2e8f0;
+            --color-sidebar-link-hover-bg: rgba(255, 255, 255, 0.1);
+            --color-sidebar-link-active-bg: #2ecc71;
+            --color-sidebar-link-active-text: #ffffff;
+            --color-sidebar-logo-text: #ffffff;
+
+            /* Topbar */
+            --color-topbar-bg: #2d3748;
+            --color-topbar-border: #4a5568;
+            --color-topbar-text: #e2e8f0;
+
+            /* Dropdown */
+            --color-dropdown-bg: #2d3748;
+            --color-dropdown-text: #e2e8f0;
+            --color-dropdown-hover-bg: #4a5568;
+            --color-dropdown-hover-text: #e2e8f0;
+
+            /* Mobile Menu - ELIMINADO */
+            /*
+            --color-mobile-menu-bg: var(--color-sidebar-bg);
+            --color-mobile-menu-text: var(--color-sidebar-text);
+            --color-mobile-menu-close-btn-hover: rgba(255, 255, 255, 0.2);
+            */
+
+            /* v2.3: Dark Pastel Colors (slightly darker/desaturated) */
+            --color-pastel-blue: #6a8aa7;
+            --color-pastel-green: #7a9a7a;
+            --color-pastel-pink: #b88d9a;
+            --color-pastel-yellow: #b3a77d;
+            --color-pastel-purple: #9a8a9a;
+            --color-pastel-orange: #b38f6b;
+            --color-pastel-grey: #8a8a8a;
+        }
+
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: auto 1fr; /* Sidebar width and main content */
+            min-height: 100vh;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: 250px;
+            background-color: var(--color-sidebar-bg);
+            color: var(--color-sidebar-text);
+            transition: width 0.3s ease-in-out;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+        
+        .sidebar-link {
+            color: var(--color-sidebar-text);
+            transition: all 0.2s ease-in-out;
+        }
+        .sidebar-link:hover {
+            background-color: var(--color-sidebar-link-hover-bg);
+        }
+        .sidebar-link.active {
+            background-color: var(--color-sidebar-link-active-bg);
+            color: var(--color-sidebar-link-active-text);
+        }
+        .sidebar-link .icon {
+            font-size: 1.5rem; /* Iconos más grandes */
+            min-width: 24px;
+        }
+        .sidebar-link .text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sidebar-logo-text {
+            color: var(--color-sidebar-logo-text);
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .sidebar-heading {
+            color: var(--color-text-secondary); /* Un poco más tenue */
+        }
+        .sidebar-dropdown-btn {
+            background-color: rgba(255,255,255,0.05); /* Fondo sutil para el botón */
+            color: var(--color-sidebar-text);
+            transition: all 0.2s ease-in-out;
+        }
+        .sidebar-dropdown-btn:hover {
+            background-color: var(--color-sidebar-link-hover-bg);
+        }
+
+        /* --- Topbar --- */
+        .topbar {
+            background-color: var(--color-topbar-bg);
+            border-bottom: 1px solid var(--color-topbar-border);
+            color: var(--color-topbar-text);
+            box-shadow: 0 1px 3px var(--color-shadow);
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            background-color: var(--color-bg-primary);
+        }
+
+        /* --- Buttons --- */
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-accent-text);
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px var(--color-shadow-hover);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-border);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px var(--color-shadow-hover);
+        }
+        /* v6.0: Botón Add */
+        .btn-add {
+            background-color: var(--color-icon-blue); /* Usamos el azul */
+            color: var(--color-accent-text);
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-add:hover {
+            background-color: #2980b9; /* Azul más oscuro */
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px var(--color-shadow-hover);
+        }
+
+
+        /* --- Cards --- */
+        .qa-card {
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 2px 4px var(--color-shadow);
+            transition: all 0.2s ease-in-out;
+        }
+        .qa-card:hover {
+            box-shadow: 0 4px 8px var(--color-shadow-hover);
+            transform: translateY(-2px);
+            border-color: var(--color-accent); /* Borde de acento al pasar el ratón */
+        }
+        .qa-card .card-icon {
+            color: var(--color-accent); /* Por defecto, se sobrescribe con colores específicos */
+        }
+        .card-icon.red { color: var(--color-icon-red); }
+        .card-icon.yellow { color: var(--color-icon-yellow); }
+        .card-icon.green { color: var(--color-icon-green); }
+        .card-icon.blue { color: var(--color-icon-blue); }
+        .card-icon.purple { color: var(--color-icon-purple); }
+
+        /* Clase dedicada para el icono de email en el sidebar ELIMINADA */
+        /* .icon-email-template { ... } */
+
+
+        /* --- Dropdown --- */
+        .dropdown-menu {
+            background-color: var(--color-dropdown-bg);
+            box-shadow: 0 4px 8px var(--color-shadow-hover);
+            border: 1px solid var(--color-border);
+            /* Cambiado: ya no es absoluto, para que empuje el contenido */
+        }
+        .dropdown-item {
+            color: var(--color-dropdown-text);
+        }
+        .dropdown-item:hover {
+            background-color: var(--color-dropdown-hover-bg);
+            color: var(--color-dropdown-hover-text);
+        }
+
+        /* --- Mobile Menu (Drawer) - ELIMINADO --- */
+        /*
+        .mobile-menu-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+        }
+        .mobile-menu-drawer {
+            background-color: var(--color-mobile-menu-bg);
+            color: var(--color-mobile-menu-text);
+            z-index: 50;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-out;
+        }
+        .mobile-menu-drawer.open {
+            transform: translateX(0);
+        }
+        .mobile-menu-close-btn {
+            color: var(--color-mobile-menu-text);
+        }
+        .mobile-menu-close-btn:hover {
+            background-color: var(--color-mobile-menu-close-btn-hover);
+        }
+        */
+        
+        /* --- Estilos Página Equipo (v2.0: Rediseño a Tarjetas) --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem; /* 24px */
+        }
+        .contact-card {
+            background-color: var(--color-bg-secondary);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px var(--color-shadow);
+            border-top: 4px solid var(--color-accent); /* Color por defecto (Management) v2.1 */
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-card:hover {
+            box-shadow: 0 4px 8px var(--color-shadow-hover);
+            transform: translateY(-2px);
+        }
+        .contact-card.border-blue { border-top-color: var(--color-icon-blue); } /* QE CFT v2.1 */
+        .contact-card.border-yellow { border-top-color: var(--color-icon-yellow); } /* QE Supplier v2.1 */
+        .contact-card.border-purple { border-top-color: var(--color-icon-purple); } /* Management (antes era accent) v2.1 */
+        
+        .contact-card-header {
+            padding: 1rem 1.25rem;
+            font-size: 1.125rem; /* 18px */
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        .contact-card-body {
+            padding: 0 1.25rem 1rem;
+            flex-grow: 1;
+        }
+        .contact-card-body .role, .contact-card-body .customer { /* v2.1: Renombrado role a customer para claridad */
+            font-weight: 600;
+            color: var(--color-text-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .contact-card-body .detail {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem; /* 14px */
+            color: var(--color-text-secondary);
+            margin-top: 0.5rem;
+        }
+        .contact-card-body .detail ion-icon {
+            font-size: 1.125rem; /* 18px */
+            margin-right: 0.5rem;
+            color: var(--color-text-secondary);
+            flex-shrink: 0;
+        }
+        
+        .contact-card-footer {
+            padding: 1rem 1.25rem;
+            background-color: var(--color-bg-primary);
+            border-top: 1px solid var(--color-border);
+            font-size: 0.875rem; /* 14px */
+            color: var(--color-text-secondary);
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .contact-card-footer strong {
+            color: var(--color-text-primary);
+        }
+
+        /* Estilos para celdas editables (v2.0 / v6.0) */
+        [contenteditable="true"] {
+            background-color: #fffbeB; /* Amarillo claro */
+            outline: 2px solid var(--color-accent);
+            outline-offset: -2px;
+            border-radius: 4px;
+            padding: 2px 4px;
+            min-height: 1.5em; /* Asegura un tamaño mínimo clickeable */
+        }
+        body.theme-dark [contenteditable="true"] {
+             background-color: #4a5568; /* Fondo oscuro */
+             outline-color: var(--color-accent);
+        }
+
+
+        /* --- Toggle Switch (v1.9) --- */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .toggle-slider {
+            background-color: var(--color-accent);
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        /* --- Estilos Modal Login (v2.0) --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-box {
+            background-color: var(--color-bg-secondary);
+            color: var(--color-text-primary);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 400px;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.open .modal-box {
+            transform: scale(1);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .modal-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .modal-close-btn {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+        .modal-close-btn:hover {
+            color: var(--color-text-primary);
+        }
+        .modal-body {
+            padding: 1.5rem;
+        }
+        .modal-body label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .modal-body input[type="text"],
+        .modal-body input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            margin-bottom: 1rem;
+        }
+        .modal-body input[type="text"]:focus,
+        .modal-body input[type="password"]:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.3);
+        }
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* --- Estilos Página DCS (v2.3: Lista coloreada) --- */
+        .dcs-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem; /* 12px */
+        }
+        .dcs-list-item {
+            display: block;
+            padding: 1rem 1.5rem; /* 16px 24px */
+            border-radius: 8px;
+            box-shadow: 0 1px 3px var(--color-shadow);
+            transition: all 0.2s ease-in-out;
+            color: var(--color-text-primary); /* Asegura que el texto sea legible en colores pastel */
+        }
+        .dcs-list-item:hover {
+            box-shadow: 0 3px 6px var(--color-shadow-hover);
+            transform: translateY(-1px);
+            filter: brightness(0.95); /* Oscurece ligeramente al pasar el ratón */
+        }
+        .dcs-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem; /* 4px */
+            color: var(--color-text-primary); /* Color primario para el título */
+        }
+        .dcs-id {
+            font-size: 0.875rem; /* 14px */
+            color: var(--color-text-secondary); /* Color secundario para el ID */
+        }
+        
+        /* Clases de colores pastel (v2.3) */
+        .bg-pastel-blue { background-color: var(--color-pastel-blue); }
+        .bg-pastel-green { background-color: var(--color-pastel-green); }
+        .bg-pastel-pink { background-color: var(--color-pastel-pink); }
+        .bg-pastel-yellow { background-color: var(--color-pastel-yellow); }
+        .bg-pastel-purple { background-color: var(--color-pastel-purple); }
+        .bg-pastel-orange { background-color: var(--color-pastel-orange); }
+        .bg-pastel-grey { background-color: var(--color-pastel-grey); }
+
+        /* Ajustes de color de texto para fondos pastel específicos en tema oscuro */
+        body.theme-dark .bg-pastel-blue,
+        body.theme-dark .bg-pastel-purple,
+        body.theme-dark .bg-pastel-grey {
+            color: #ffffff; /* Texto blanco para mejor contraste */
+        }
+         /* Ajustes de color de texto primario para fondos pastel claros en tema oscuro */
+        body.theme-dark .bg-pastel-green .dcs-title,
+        body.theme-dark .bg-pastel-pink .dcs-title,
+        body.theme-dark .bg-pastel-yellow .dcs-title,
+        body.theme-dark .bg-pastel-orange .dcs-title {
+             color: #1a202c; /* Texto oscuro para contraste */
+        }
+        body.theme-dark .dcs-id {
+            color: #d1d5db; /* Un gris más claro para el ID en tema oscuro */
+        }
+         body.theme-dark .bg-pastel-green .dcs-id,
+         body.theme-dark .bg-pastel-pink .dcs-id,
+         body.theme-dark .bg-pastel-yellow .dcs-id,
+         body.theme-dark .bg-pastel-orange .dcs-id {
+             color: #4a5568; /* Texto gris oscuro para contraste */
+         }
+
+
+    </style>
+</head>
+<body class="antialiased theme-light" data-lang="ro">
+
+    <div class="layout-grid">
+        
+        <aside class="sidebar flex flex-col h-full sticky top-0">
+            <div class="flex items-center justify-between h-16 px-4 flex-shrink-0 border-b border-gray-700">
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="ml-3 text-2xl font-bold sidebar-logo-text whitespace-nowrap" data-key="qa-masters">PLEXUS QBWM</span>
+                </div>
+                </div>
+            
+            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                <a href="#" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg" data-page="home" data-key="home">
+                    <div class="flex items-center sidebar-link-content">
+                        <ion-icon name="home-outline" class="icon mr-3"></ion-icon>
+                        <span class="text">Inicio</span>
+                    </div>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1wix4vI_Tvk5L3A5on-FxzPXsorBdKzLctPvhO5FqmF8/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                    <div class="flex items-center sidebar-link-content">
+                        <ion-icon name="construct-outline" class="icon mr-3"></ion-icon>
+                        <span class="text">Acceptabilitate Rework</span>
+                    </div>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg" data-page="ein-equipment">
+                    <div class="flex items-center sidebar-link-content">
+                        <ion-icon name="cube-outline" class="icon mr-3"></ion-icon>
+                        <span class="text">EIN Equipments (A.C.T.S)</span>
+                    </div>
+                </a>
+                <a href="https://tipweb.plexus.com/TipQAWeb/saml/login" target="_blank" rel="noopener noreferrer" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                    <div class="flex items-center sidebar-link-content">
+                        <ion-icon name="apps-outline" class="icon mr-3"></ion-icon>
+                        <span class="text">TIPQA APP (NC)</span>
+                    </div>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg" data-page="email-templates" data-key="email-templates-link">
+                    <div class="flex items-center sidebar-link-content">
+                        <ion-icon name="mail-outline" class="icon mr-3"></ion-icon>
+                        <span class="text">Template (E-Mail)</span>
+                    </div>
+                </a>
+                <a href="#" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg" data-page="escalation" data-key="escalation-process-link">
+                    <div class="flex items-center sidebar-link-content">
+                        <ion-icon name="trending-up-outline" class="icon mr-3"></ion-icon>
+                        <span class="text">Proces Escaladare</span>
+                    </div>
+                </a>
+
+                <div class="py-4">
+                    <p class="sidebar-heading px-3 text-xs font-semibold uppercase mb-2" data-key="common-processes">Procese Comune</p>
+                    
+                    <div class="mb-2">
+                        <button type="button" class="sidebar-dropdown-btn w-full flex justify-between items-center px-3 py-2 text-sm font-medium rounded-lg" data-action="toggle-dropdown" aria-expanded="false">
+                            <span class="flex items-center sidebar-link-content">
+                                <ion-icon name="hardware-chip-outline" class="icon mr-3"></ion-icon>
+                                <span class="text" data-key="smt-process">SMT</span>
+                            </span>
+                            <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                        </button>
+                        <div class="dropdown-menu hidden mt-1 w-full py-1 rounded-md" data-dropdown-menu>
+                            <a href="https://acts-amer.na.plexus.com/Home/ShopFloor?site=470%20-%20Oradea&shopfloor=ORA%20SMT%20Common%20Process&ismonitor=False&sfid=123" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">A.C.T.S - Shop Floor SMT</a>
+                            <a href="https://acts-amer.na.plexus.com/desktop/station" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">A.C.T.S - Completare / Inchidere</a>
+                            <a href="https://drive.google.com/drive/folders/17PZC6qOHbBBhNuv9M3AT89y78svNjY8M" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">Plan SMT - Arhiva</a>
+                            <a href="https://drive.google.com/drive/folders/1GgboGmHrlNpc_KiiVMvbhcPY1mrv0dHz" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">Eficienta SMT</a>
+                            <a href="https://script.google.com/a/macros/plexus.com/s/AKfycbzoDomVaDDcfvwp2s1s2mboMmKXqEf6i-B95ivrAGw-QgY42_UfjT4mVeeoBJRpl_TP/exec" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">SN FPV SMT</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1rYiXW6KoIQAVSWKakDbEBmHNSUA4FdIsQlDOfNjrooU/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">Verificare Capete de Role (Tear-Down)</a>
+                            <a href="https://www.digikey.ro/ro/resources/conversion-calculators/conversion-calculator-smd-resistor-code" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">Marking Cod Rezistor SMT</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <button type="button" class="sidebar-dropdown-btn w-full flex justify-between items-center px-3 py-2 text-sm font-medium rounded-lg" data-action="toggle-dropdown" aria-expanded="false">
+                             <span class="flex items-center sidebar-link-content">
+                                <ion-icon name="flame-outline" class="icon mr-3"></ion-icon>
+                                <span class="text" data-key="soldering-process">Soldering</span>
+                            </span>
+                            <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                        </button>
+                        <div class="dropdown-menu hidden mt-1 w-full py-1 rounded-md" data-dropdown-menu>
+                             <a href="https://acts-amer.na.plexus.com/Home/ShopFloor?site=470%20-%20Oradea&shopfloor=ORA%20Soldering%20Common%20Process&sfid=126" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">A.C.T.S - Shop Floor Soldering</a>
+                             <a href="https://acts-amer.na.plexus.com/desktop/station" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">A.C.T.S - Completare / Inchidere</a>
+                             <a href="https://drive.google.com/drive/folders/1tegxRn3mmYpo3ES5kmP42pGJtSfRXg97" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">Plan Soldering - Arhiva</a>
+                             <a href="https://docs.google.com/spreadsheets/d/1zaGuko-rhHfLiRftvBc7qvSlJtHorW7q-keBRcyE0L8/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">SN FPV Soldering</a>
+                             <a href="https://docs.google.com/spreadsheets/d/1zaGuko-rhHfLiRftvBc7qvSlJtHorW7q-keBRcyE0L8/edit?gid=1912821263#gid=1912821263" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">SN FPV Depanelizare</a>
+                             <a href="https://docs.google.com/spreadsheets/d/1zaGuko-rhHfLiRftvBc7qvSlJtHorW7q-keBRcyE0L8/edit?gid=1290482223#gid=1290482223" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">FPV Hot Bar</a>
+                             <a href="https://script.google.com/a/macros/plexus.com/s/AKfycbzaIjWsItiTMtvNxMcvo1bB4-WDg1uG3jBd_IB4O5qXboyZure_e2JsZjeyw4ZXjdLR/exec " target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">Val. Comp. Prep - 11130</a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <button type="button" class="sidebar-dropdown-btn w-full flex justify-between items-center px-3 py-2 text-sm font-medium rounded-lg" data-action="toggle-dropdown" aria-expanded="false">
+                             <span class="flex items-center sidebar-link-content">
+                                <ion-icon name="shield-checkmark-outline" class="icon mr-3"></ion-icon>
+                                <span class="text" data-key="cc-process">Conformal Coating</span>
+                            </span>
+                            <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                        </button>
+                        <div class="dropdown-menu hidden mt-1 w-full py-1 rounded-md" data-dropdown-menu>
+                             <a href="https://drive.google.com/drive/folders/1cE04o67IPCq8bs0HpBxxN2ZVP-q2lQND" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">Plan Conformal Coating</a>
+                             <a href="https://docs.google.com/spreadsheets/d/1zaGuko-rhHfLiRftvBc7qvSlJtHorW7q-keBRcyE0L8/edit?gid=216429333#gid=216429333" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">SN FPV Conformal Coating</a>
+                             <a href="https://docs.google.com/spreadsheets/d/1zaGuko-rhHfLiRftvBc7qvSlJtHorW7q-keBRcyE0L8/edit?gid=919639016#gid=919639016" target="_blank" rel="noopener noreferrer" class="dropdown-item block px-3 py-2 text-sm rounded-md">SN FPV Masking</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-4">
+                    <p class="sidebar-heading px-3 text-xs font-semibold uppercase mb-2" data-key="org-personal">Organizare Personal</p>
+                    
+                    <a href="https://script.google.com/a/macros/plexus.com/s/AKfycbwUOisWpn4Fah-XLyU7Cm4U01fnhAQxKPVr_ddxKjEmh-hQSPWLHiRNDvR2XQR-ISWA/exec" target="_blank" rel="noopener noreferrer" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <div class="flex items-center sidebar-link-content">
+                            <ion-icon name="time-outline" class="icon mr-3"></ion-icon>
+                            <span class="text">Overtime - Flexibilitate</span>
+                        </div>
+                    </a>
+                    <a href="https://script.google.com/a/macros/plexus.com/s/AKfycbwdxCSeXyJEuHlLbDFR0x5fqLKshmCUqo1-9VGx3-T7F_AmCe3Lwo2zO1v6PZ0L9JLK/exec" target="_blank" rel="noopener noreferrer" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <div class="flex items-center sidebar-link-content">
+                            <ion-icon name="calendar-outline" class="icon mr-3"></ion-icon>
+                            <span class="text">Planificare Concediu</span>
+                        </div>
+                    </a>
+                    <a href="https://webappsemea.eu.plexus.com/EMEA-TimeAndAttendance/" target="_blank" rel="noopener noreferrer" class="sidebar-link flex items-center px-3 py-2 text-sm font-medium rounded-lg">
+                        <div class="flex items-center sidebar-link-content">
+                            <ion-icon name="id-card-outline" class="icon mr-3"></ion-icon>
+                            <span class="text">Time & Attendance</span>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="py-4">
+                    <p class="sidebar-heading px-3 text-xs font-semibold uppercase mb-2" data-key="preferences">Preferencias</p>
+                    
+                    <div class="mb-2">
+                        <button type="button" class="sidebar-dropdown-btn w-full flex justify-between items-center px-3 py-2 text-sm font-medium rounded-lg" data-action="toggle-dropdown" aria-expanded="false">
+                            <span class="flex items-center sidebar-link-content">
+                                <ion-icon name="language-outline" class="icon mr-3"></ion-icon>
+                                <span id="current-language-display-desktop" class="text">RO</span>
+                            </span>
+                            <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                        </button>
+                        <div class="dropdown-menu hidden mt-1 w-full py-1 rounded-md" data-dropdown-menu>
+                            <a href="#" class="dropdown-item block px-3 py-2 text-sm rounded-md" data-lang-code="ro">Română</a>
+                            <a href="#" class="dropdown-item block px-3 py-2 text-sm rounded-md" data-lang-code="en">English</a>
+                            <a href="#" class="dropdown-item block px-3 py-2 text-sm rounded-md" data-lang-code="hu">Magyar</a>
+                        </div>
+                    </div>
+                    
+                    <div class="">
+                        <button type="button" class="sidebar-dropdown-btn w-full flex justify-between items-center px-3 py-2 text-sm font-medium rounded-lg" data-action="toggle-dropdown" aria-expanded="false">
+                             <span class="flex items-center sidebar-link-content">
+                                <ion-icon name="color-palette-outline" class="icon mr-3"></ion-icon>
+                                <span id="current-theme-display-desktop" class="text" data-key="theme-light">Claro</span>
+                            </span>
+                            <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                        </button>
+                        <div class="dropdown-menu hidden mt-1 w-full py-1 rounded-md" data-dropdown-menu>
+                             <a href="#" class="dropdown-item block px-3 py-2 text-sm rounded-md" data-theme-name="theme-light" data-key="theme-light">Claro</a>
+                             <a href="#" class="dropdown-item block px-3 py-2 text-sm rounded-md" data-theme-name="theme-dark" data-key="theme-dark">Oscuro</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            </aside>
+
+        <div class="flex flex-col flex-1">
+            
+            <header class="topbar sticky top-0 z-30 h-16 flex items-center px-4 sm:px-6 lg:px-8">
+                <h1 class="text-base font-normal text-gray-600 dark:text-gray-400" data-key="footer-motto">Portalul QA</h1>
+                
+                <div class="ml-auto flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <ion-icon name="notifications-outline" class="text-xl"></ion-icon>
+                    </button>
+                    <button id="user-menu-btn" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <ion-icon id="user-menu-icon" name="person-circle-outline" class="text-3xl"></ion-icon>
+                    </button>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto main-content p-8">
+                <div id="page-container">
+                    </div>
+            </main>
+
+        </div>
+
+        </div>
+
+    <div id="login-modal-overlay" class="modal-overlay hidden">
+        <div id="login-modal-box" class="modal-box">
+            <div class="modal-header">
+                <h3 id="login-modal-title">Admin Login</h3>
+                <button id="login-modal-close-btn" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div>
+                        <label for="login-username">Utilizator</label>
+                        <input type="text" id="login-username" name="username" required />
+                    </div>
+                    <div>
+                        <label for="login-password">Parolă</label>
+                        <input type="password" id="login-password" name="password" required />
+                    </div>
+                    <p id="login-error" class="text-red-500 text-sm mt-2"></p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="login-submit-btn" type="submit" form="login-form" class="btn-primary py-2 px-5 rounded-lg font-semibold text-sm">
+                    Autentificare
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="info-modal-overlay" class="modal-overlay hidden">
+        <div id="info-modal-box" class="modal-box">
+            <div class="modal-header">
+                <h3 id="info-modal-title">Value Check Results - Instrucțiuni</h3>
+                <button id="info-modal-close-btn" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="text-sm" style="color: var(--color-text-secondary);">Copiază acest Link și deschide pe "File Explorer" pentru accesarea bazei de date centralizată pentru verificarea rolelor măsurate. Nu uita să copiezi fișierul "PlexusComponentTesterDatabase.csv" la tine pe Desktop pentru a evita coruperea datelor.</p>
+                <textarea readonly class="w-full h-40 p-2 mt-4 border rounded-md text-sm" style="background-color: var(--color-bg-primary); color: var(--color-text-primary); border-color: var(--color-border); resize: none; user-select: all;">O:\Site\Test\Public\550 - Passive Component Test\Database\Station I</textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="info-modal-ok-btn" class="btn-primary py-2 px-5 rounded-lg font-semibold text-sm">
+                    Am înțeles
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Lista de todos los temas posibles (simplificada para v2.0) ---
+        const allThemes = ["theme-light", "theme-dark"];
+
+        // --- Frases Motivacionales (Actualizado v1.8) ---
+        const motivationalQuotes = {
+            ro: [
+		"Calitatea nu este o acțiune. Este OBIECTUL oamenilor de succes.",
+		"Calitatea este un sentiment de apreciere că ceva este mai bun decât altceva.",
+		"Calitatea este gradul de excelență la un preț acceptabil.",
+		"Calitatea înseamnă conformitatea cu cerințele.",
+                "Excelența nu este o abilitate, este o atitudine.",
+                "Fă-o bine, chiar și atunci când nimeni nu se uită.",
+		"Calitatea este în general transparentă atunci când este prezentă, dar ușor de recunoscut în absența ei.",
+                "Calitatea de astăzi este afacerea de mâine.",
+                "Îmbunătățirea cu 1% în fiecare zi este calea spre excelență.",
+                "Calitatea nu se delegă, se asumă.",
+		"Oferă-le calitate. Acesta este cel mai bun tip de publicitate.",
+                "Suntem ceea ce facem în mod repetat. Excelența, prin urmare, nu este un act, ci un obicei.",
+                "Calitatea este amintită mult timp după ce prețul este uitat.",
+                "Fii un etalon al calității. Unii oameni nu sunt obișnuiți cu un mediu în care se așteaptă excelența.",
+                "Un produs întârziat este în cele din urmă bun, dar un produs grăbit este rău pentru totdeauna.",
+                "Calitatea este rezultatul unui mediu cultural în care inteligența, integritatea și mândria sunt apreciate."
+            ],
+            en: [
+                "Excellence is not a skill, it is an attitude.",
+                "Do it right, even when no one is looking.",
+                "Today's quality is tomorrow's business.",
+                "Improving 1% every day is the path to excellence.",
+                "Quality is not delegated, it is assumed.",
+                "We are what we repeatedly do. Excellence, therefore, is not an act, but a habit.",
+                "Quality is remembered long after the price is forgotten.",
+                "Be a yardstick of quality. Some people aren't used to an environment where excellence is expected.",
+                "A delayed product is eventually good, but a rushed product is bad forever.",
+                "Quality is the result of a cultural environment where intelligence, integrity, and pride are valued."
+            ],
+            hu: [
+                "A kiválóság nem képesség, hanem hozzáállás.",
+                "Tedd jól, még akkor is, ha senki sem néz.",
+                "A mai minőség a holnap üzlete.",
+                "A napi 1%-os javulás a kiválósághoz vezető út.",
+                "A minőséget nem delegálják, hanem vállalják.",
+                "Azok vagyunk, amit ismételten teszünk. A kiválóság tehát nem egy tett, hanem egy szokás.",
+                "A minőségre sokáig emlékeznek, miután az árat már elfelejtették.",
+                "Legyél a minőség mércéje. Vannak, akik nincsenek hozzászokva a kiválóságot elváró környezethez.",
+                "Egy megkésett termék végül jó lesz, de egy elsietett termék örökre rossz marad.",
+                "A minőség egy olyan kulturális környezet eredménye, ahol értékelik az intelligenciát, az integritást és a büszkeséget."
+            ]
+        };
+
+        // --- Traducciones (Actualizado v6.0) ---
+        const translations = {
+            ro: {
+                "page-title": "Portalul Echipei Quality",
+                "qa-masters": "PLEXUS QBWM",
+                "home": "Acasă",
+                "email-templates-link": "Template (E-Mail)", 
+                "escalation-process-link": "Proces Escaladare", 
+                "common-processes": "Procese Comune",
+                "smt-process": "SMT",
+                "soldering-process": "Soldering",
+                "cc-process": "Conformal Coating",
+                "org-personal": "Organizare Personal",
+                "preferences": "Preferințe",
+                "open-main-menu": "Deschide meniul principal",
+                "language": "Limba",
+                "theme": "Temă",
+                "theme-light": "Luminos",
+                "theme-dark": "Întunecat",
+                "main-title-part1": "Bun venit la",
+                "main-title-part2": "Portalul QA",
+                "hero-description": "Acces centralizat la resurse, instrumente și rapoarte pentru echipa de control al calității.",
+                "go-to-test-cases": "Accesare IPC",
+                "view-documentation": "Vezi Documentația DCS",
+                "quick-access-title": "Acces Rapid",
+                "report-bug-description": "Link direct către lista Ticket-elor Bugzilla rămase deschise. Verifică dacă nu ai uitat să închizi un Ticket",
+                "test-manager-title": "Test C3 - Ticket",
+                "test-manager-description": "Accesează pentru crearea unui Ticket, necesar la testarea plăcilor la Testul C3.",
+                "qa-guides-title": "Ghiduri și Prezentări QA",
+                "qa-guides-description": "Documentație internă, prezentări și instrucțiuni pas cu pas + schițe tehnice privind orientarea unor componente (Grad ridicat de complexitate)",
+                "our-team-title": "Echipa Noastră",
+                "our-team-description": "Contactează membrii echipei, QE CFT alocați pe proiecte, QE Supplier alocați pe clienți, QA Lead.", 
+                "footer-copyright": "Echipa de Control al Calității. Toate drepturile rezervate.",
+                "go-to-link": "Accesați",
+                // v1.9 - Página de equipo
+                "team-page-title": "Contacte Echipa QA",
+                "team-admin-mode": "Mod Admin",
+                "team-save-changes": "Salvare Modificări",
+                "team-data-saved-success": "Date salvate cu succes!",
+                "team-engineers-title": "Ingineri Calitate (QE CFT)", 
+                "team-supplier-engineers-title": "Ingineri Calitate (QE Supplier)", 
+                "team-management-title": "Management Calitate",
+                "team-table-header-engineer": "Inginer / Client (MPF)",
+                "team-table-header-phone": "Nr. Telefon",
+                "team-table-header-backup": "Back-up",
+                "team-table-header-name": "Nume",
+                "team-table-header-role": "Rol",
+                // v2.2 - Página DCS
+                "dcs-page-title": "Documente Importante DCS",
+                // v2.4 - Página Email Templates
+                "email-templates-title": "Template (E-Mail)", 
+                // v2.5 / v6.0 - Página Escalación
+                "escalation-page-title": "Proces Escaladare SMT",
+                "escalation-save-changes": "Salvare Modificări", // v6.0
+                "escalation-add-incident": "Adăugare Incident", // v6.0
+                "escalation-data-saved-success": "Date escaladare salvate cu succes!" // v6.0
+            },
+            en: {
+                "page-title": "QA Team Portal",
+                "qa-masters": "PLEXUS QBWM",
+                "home": "Home",
+                "email-templates-link": "Template (E-Mail)", 
+                "escalation-process-link": "Escalation Process", 
+                "common-processes": "Common Processes",
+                "smt-process": "SMT",
+                "soldering-process": "Soldering",
+                "cc-process": "Conformal Coating",
+                "org-personal": "Staff Organization",
+                "preferences": "Preferences",
+                "open-main-menu": "Open main menu",
+                "language": "Language",
+                "theme": "Theme",
+                "theme-light": "Light",
+                "theme-dark": "Dark",
+                "main-title-part1": "Welcome to the",
+                "main-title-part2": "QA Portal",
+                "hero-description": "Centralized access to resources, tools, and reports for the Quality Assurance team.",
+                "go-to-test-cases": "Access IPC",
+                "view-documentation": "View DCS Documentation",
+                "quick-access-title": "Quick Access",
+                "report-bug-description": "Direct link to the list of remaining open Bugzilla Tickets. Check if you forgot to close a ticket.",
+                "test-manager-title": "C3 Test - Ticket",
+                "test-manager-description": "Access to create a ticket, required for testing boards at the C3 Test.",
+                "qa-guides-title": "QA Guides & Presentations",
+                "qa-guides-description": "Internal documentation, presentations, and step-by-step instructions + technical sketches regarding component orientation (High complexity)",
+                "our-team-title": "Our Team",
+                "our-team-description": "Contact team members, QE CFT assigned to projects, QE Supplier assigned to customers, QA Lead.", 
+                "footer-copyright": "Quality Control Team. All rights reserved.",
+                "go-to-link": "Go to link",
+                // v1.9 - Página de equipo
+                "team-page-title": "QA Team Contacts",
+                "team-admin-mode": "Admin Mode",
+                "team-save-changes": "Save Changes",
+                "team-data-saved-success": "Data saved successfully!",
+                "team-engineers-title": "Quality Engineers (QE CFT)", 
+                "team-supplier-engineers-title": "Quality Engineers (QE Supplier)", 
+                "team-management-title": "Quality Management",
+                "team-table-header-engineer": "Engineer / Customer (MPF)",
+                "team-table-header-phone": "Phone No.",
+                "team-table-header-backup": "Back-up",
+                "team-table-header-name": "Name",
+                "team-table-header-role": "Role",
+                // v2.2 - Página DCS
+                "dcs-page-title": "Important DCS Documents",
+                 // v2.4 - Página Email Templates
+                "email-templates-title": "Template (E-Mail)", 
+                // v2.5 / v6.0 - Página Escalación
+                "escalation-page-title": "SMT Escalation Process", 
+                "escalation-save-changes": "Save Changes", // v6.0
+                "escalation-add-incident": "Add Incident", // v6.0
+                "escalation-data-saved-success": "Escalation data saved successfully!" // v6.0
+            },
+            hu: {
+                "page-title": "QA Csapat Portál",
+                "qa-masters": "PLEXUS QBWM",
+                "home": "Kezdőlap",
+                "email-templates-link": "Sablon (E-mail)", 
+                "escalation-process-link": "Eszkalációs Folyamat", 
+                "common-processes": "Közös Folyamatok",
+                "smt-process": "SMT",
+                "soldering-process": "Soldering",
+                "cc-process": "Conformal Coating",
+                "org-personal": "Személyzeti Szervezés",
+                "preferences": "Beállítások",
+                "open-main-menu": "Főmenü megnyitása",
+                "language": "Nyelv",
+                "theme": "Téma",
+                "theme-light": "Világos",
+                "theme-dark": "Sötét",
+                "main-title-part1": "Üdvözöljük a",
+                "main-title-part2": "QA Portálon",
+                "hero-description": "Központi hozzáférés az erőforrásokhoz, eszközökhöz és jelentésekhez a minőségbiztosítási csapat számára.",
+                "go-to-test-cases": "IPC Hozzáférés",
+                "view-documentation": "DCS Dokumentáció megtekintése",
+                "quick-access-title": "Gyors hozzáférés",
+                "report-bug-description": "Közvetlen link a nyitva maradt Bugzilla jegyek listájához. Ellenőrizd, hogy nem felejtettél-e el bezárni egy jegyet.",
+                "test-manager-title": "C3 Teszt - Jegy",
+                "test-manager-description": "Hozzáférés jegy létrehozásához, amely a C3 Teszten történő kártyateszteléshez szükséges.",
+                "qa-guides-title": "QA Útmutatók és Prezentációk",
+                "qa-guides-description": "Belső dokumentáció, prezentációk és lépésről lépésre útmutatók + műszaki vázlatok az alkatrészek tájolásáról (Nagyfokú komplexitás)",
+                "our-team-title": "Csapatunk",
+                "our-team-description": "Lépjen kapcsolatba a csapattagokkal, a projektekhez rendelt QE CFT-vel, az ügyfelekhez rendelt QE szállítóval, QA Lead-del.", 
+                "footer-copyright": "Minőségellenőrgési Csapat. Minden jog fenntartva.",
+                "go-to-link": "Ugrás a linkre",
+                // v1.9 - Página de equipo
+                "team-page-title": "QA Csapat Elérhetőségei",
+                "team-admin-mode": "Admin Mód",
+                "team-save-changes": "Módosítások Mentése",
+                "team-data-saved-success": "Adatok sikeresen mentve!",
+                "team-engineers-title": "Minőségügyi Mérnökök (QE CFT)", 
+                "team-supplier-engineers-title": "Minőségügyi Mérnökök (QE Supplier)", 
+                "team-management-title": "Minőségügyi Vezetőség",
+                "team-table-header-engineer": "Mérnök / Ügyfél (MPF)",
+                "team-table-header-phone": "Telefonszám",
+                "team-table-header-backup": "Helyettes",
+                "team-table-header-name": "Név",
+                "team-table-header-role": "Szerepkör",
+                // v2.2 - Página DCS
+                "dcs-page-title": "Fontos DCS Dokumentumok",
+                 // v2.4 - Página Email Templates
+                "email-templates-title": "Sablon (E-mail)", 
+                // v2.5 / v6.0 - Página Escalación
+                "escalation-page-title": "SMT Eszkalációs Folyamat", 
+                "escalation-save-changes": "Módosítások Mentése", // v6.0
+                "escalation-add-incident": "Incidens Hozzáadása", // v6.0
+                "escalation-data-saved-success": "Eszkalációs adatok sikeresen mentve!" // v6.0
+            }
+        };
+
+        // --- Datos del Equipo (v2.1: Separado CFT y Supplier) ---
+        // Datos QE CFT (antes teamData)
+        let cftData = [
+            { engineer: "Tibor Nemeth", customer: "Sepura-678", phone: "0729814591", backup: "Radu Rosmenteniuc" },
+            { engineer: "Alexandru Perl", customer: "Draeger Safety-632 / Draeger Medical-604", phone: "0746476000", backup: "Sonia Bals" },
+            { engineer: "Sonia Bals", customer: "ITW Instron-992 / Alpitronic-18F", phone: "0743568201 / 0741927198", backup: "Alexandru Perl" },
+            { engineer: "Csongor Miklos", customer: "Alpitronic-18F", phone: "0729069862", backup: "Sonia Bals" },
+            { engineer: "Bianca Fodor", customer: "ABB-026 / Esab 806 / Atos-683 / Congatec-849", phone: "0756563006", backup: "Csongor Miklos" },
+            { engineer: "Radu Rosmenteniuc", customer: "GE Vernova-316 (GE India, GE Stafford, GE Bilbao)", phone: "0741293366", backup: "Larisa Albini / Tibor Nemeth" },
+            { engineer: "Larisa Albini", customer: "GE Vernova-316 (GE France, GE Stafford)", phone: "0746518979", backup: "Radu Rosmenteniuc" },
+            { engineer: "Alexandra Ignat", customer: "Cytiva-148 / Radiometer-708", phone: "0742987856", backup: "N/A" },
+            { engineer: "Calin Pasc", customer: "Siemens-791 / Optos Medical-962", phone: "0743964163", backup: "N/A" },
+            { engineer: "Claudia Joo", customer: "GE Healthcare-825", phone: "0774088504", backup: "Raluca Chiorean" },
+            { engineer: "Ioan Patron", customer: "Beckton Dickinson-624 (BD Alaris, CME, SP, GW)", phone: "0748766646", backup: "N/A" },
+            { engineer: "Bianka Lakatos", customer: "Beckton Dickinson-624 (BD Rowa)", phone: "N/A", backup: "N/A" },
+            { engineer: "Adrian Sumalan", customer: "NPI-624", phone: "0771051319", backup: "Ioana Paul" },
+            { engineer: "N/A", customer: "BlueWind-16H", phone: "N/A", backup: "N/A" },
+            { engineer: "Raluca Chiorean", customer: "Alton, Tandem", phone: "0737829403", backup: "Zenovia Balaian / Ioana Paul" },
+            { engineer: "Paul Piloca", customer: "GE Ultra-340 (Ariel / Voluson EC3X0 / Nora)", phone: "0733062852", backup: "Zenovia Balaian" },
+            { engineer: "Zenovia Balaian", customer: "GE Ultra-340 (Voluson EC4XD)", phone: "0744270820", backup: "Paul Piloca" },
+            { engineer: "Daniela Ile", customer: "GE Ultra-340 (Aurora)", phone: "0771643324", backup: "Raluca Chiorean" },
+            { engineer: "Ioana Paul", customer: "GE Ultra-340 (Endar)", phone: "0766272793", backup: "Zenovia Balaian" }
+        ];
+        
+// --- v6.1: Datos QE CFT 340 (del PDF) ---
+        const qeCft340Data = [
+            { asm: "5397907-3-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5397909-7-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5407372-6-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5426159-4-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5489696-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5661230-1-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5661230-1-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5661231-00-MR1-RPT-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5661231-1-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5661231-B-RPT-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5693479-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5723764-340", owner: "Paul Piloca", project: "Ariel" },
+            { asm: "5728780-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "5729044-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "5729200-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "5731191-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "5762306-3-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5763776-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5763776-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5763981-3-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5763981-3-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5764053-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5764053-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5764721-2-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5764721-2-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5764797-4-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5768072-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5768072-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5777991-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5782374-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5803180-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5803180-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5803181-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5803183-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5803184-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5803187-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5803188-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5809347-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "5809348-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "5809348-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "5825438-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "5835872-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5847457-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5848349-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5848349-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5862382-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5862382-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5862607-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5862607-TEMP-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5865892-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5865894-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "5880731-A-340", owner: "Raluca Chiorean", project: "Alton" },
+            { asm: "5934762-OR-340", owner: "Zenovia Balaian", project: "Voluson" },
+            { asm: "GA200285-A-340", owner: "Raluca Chiorean", project: "Aurora" },
+            { asm: "GA200286-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GA200695-3-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GA200726-2-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200002-1-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200002-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200017-2-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200019-4-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200141-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200141-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200389-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GC200456-2-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GM200032-GLDN-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GMPBA000573C-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GMPBA001414A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GN200011-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GN200012-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GN200013-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GN200015-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "GN200017-A-340", owner: "Daniela lle", project: "Aurora" },
+            { asm: "KT1303717-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1303717-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1303760-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1303894-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1303915-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1303916-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1303930-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1304101-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "KT1304101-TEMP-OR-340", owner: "Paul Piloca", project: "Voluson" },
+            { asm: "T2424636-3-A-340", owner: "Raluca Chiorean", project: "Alton" }
+        ];
+
+// --- v6.5: Datos EIN Equipments (del PDF) ---
+        const einEquipmentData = [
+            { smt: "1 (4701A)", einAoi: "1166708", selective: "Selective 1", einStatieSel: "1139254", touchUpSel: "1139255", conformal: "CC1", einConf: "1139290", einTouchUpConf: "CC1 Touchup / Lipsa EIN" },
+            { smt: "2 (4701B)", einAoi: "1155695", selective: "Selective 2", einStatieSel: "1139283", touchUpSel: "1139284", conformal: "CC2", einConf: "1139292", einTouchUpConf: "1139557 / CC2 Touchup" },
+            { smt: "3 (4701C)", einAoi: "1182616", selective: "Selective 3", einStatieSel: "1139288", touchUpSel: "1139287", conformal: "CC3", einConf: "1139269", einTouchUpConf: "CC3 Touchup / 1227854" },
+            { smt: "4 (4701D)", einAoi: "1155697", selective: "Selective 4", einStatieSel: "1139261", touchUpSel: "1139262", conformal: "CC4", einConf: "1139631", einTouchUpConf: "CC4 Touchup / 1139559" },
+            { smt: "5 (4701E)", einAoi: "1182618", selective: "Selective 5", einStatieSel: "1139521", touchUpSel: "1139541", conformal: "CC5", einConf: "1227822", einTouchUpConf: "1139574 / CC5 Touchup" },
+            { smt: "6 (4701F)", einAoi: "1166710", selective: "Wave 1", einStatieSel: "1139258", touchUpSel: "1139257", conformal: "CC9", einConf: "Lipsa EIN", einTouchUpConf: "CC9 Touchup / 1238001" },
+            { smt: "7 (4701G)", einAoi: "1116540", selective: "Wave 2", einStatieSel: "1139540", touchUpSel: "1139539", conformal: "CC10", einConf: "Lipsa EIN", einTouchUpConf: "Lipsa EIN / CC10 Touchup" },
+            { smt: "", einAoi: "", selective: "Wave 3", einStatieSel: "1139571", touchUpSel: "1139562", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "", einAoi: "", selective: "Wave 4", einStatieSel: "1139569", touchUpSel: "1139577", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "10 (4701J)", einAoi: "1227320", selective: "Wave 5", einStatieSel: "1139577", touchUpSel: "1139570", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "", einAoi: "", selective: "Wave 6", einStatieSel: "1139562", touchUpSel: "1139569", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "", einAoi: "", selective: "Wave 7", einStatieSel: "1139565", touchUpSel: "", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "", einAoi: "", selective: "", einStatieSel: "", touchUpSel: "", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "", einAoi: "", selective: "", einStatieSel: "", touchUpSel: "", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "X-Ray", einAoi: "1116192", selective: "", einStatieSel: "", touchUpSel: "", conformal: "", einConf: "", einTouchUpConf: "" },
+            { smt: "Rework", einAoi: "1139480, 1139477", selective: "", einStatieSel: "", touchUpSel: "", conformal: "", einConf: "", einTouchUpConf: "" }
+        ];
+
+        // Datos QE Supplier (v2.1)
+        let supplierData = [
+             { engineer: "Dan Vasiu", customer: "Alpitronic 18F", phone: "N/A", backup: "Ioana Mester" },
+             { engineer: "Dan Vasiu", customer: "Sepura - 678", phone: "N/A", backup: "Cristina Negru" },
+             { engineer: "Tamas Ari", customer: "ITW - Instron - 992", phone: "N/A", backup: "Ioana Mester" },
+             { engineer: "Cristina Negru", customer: "Draeger Safety - 632 / Draeger Medical - 604", phone: "N/A", backup: "Ioana Mester" },
+             { engineer: "Alexandru Ferenczi", customer: "Congatec - 849", phone: "N/A", backup: "Cristina Negru" },
+             { engineer: "Ioana Mester", customer: "ABB-026", phone: "N/A", backup: "Alexandru Ferenczi" },
+             { engineer: "Ioana Mester", customer: "Esab - 806", phone: "N/A", backup: "Ionut Gavruta" },
+             { engineer: "Ioana Mester", customer: "Atos - 683", phone: "N/A", backup: "Dan Vasiu" },
+             { engineer: "Ioana Mester", customer: "GE Vernova - 316", phone: "N/A", backup: "Ionut Gavruta" },
+             { engineer: "Tamas Ari", customer: "Cytiva - 14B", phone: "N/A", backup: "Raul Lechinteanu" },
+             { engineer: "Dan Vasiu", customer: "Siemens-791", phone: "N/A", backup: "Raul Lechinteanu" },
+             { engineer: "Alexandru Ferenczi", customer: "Optos Medical - 962", phone: "N/A", backup: "Cristina Negru" },
+             { engineer: "Tamas Ari", customer: "GE Healthcare - 825", phone: "N/A", backup: "Raul Lechinteanu" },
+             { engineer: "Alexandru Ferenczi", customer: "Beckton Dickinson - 624 (BD CME, GP Nexus, VP Nexus)", phone: "N/A", backup: "Ionut Gavruta" },
+             { engineer: "Ionut Gavruta", customer: "Beckton Dickinson - 624 (BD Rowa)", phone: "N/A", backup: "Alexandru Ferenczi" },
+             { engineer: "Raul Lechinteanu", customer: "Radiometer - 708", phone: "N/A", backup: "Dan Vasiu" },
+             { engineer: "Ionut Gavruta", customer: "BlueWind-16H", phone: "N/A", backup: "Cristina Negru" },
+             { engineer: "Raul Lechinteanu", customer: "GE Ultra 340 (Aurora / Nora)", phone: "N/A", backup: "Tamas Ari" },
+             { engineer: "Raul Lechinteanu", customer: "GE Ultra 340 (Ariel)", phone: "N/A", backup: "Dan Vasiu" },
+             { engineer: "Cristina Negru", customer: "GE Ultra 340 (Alton)", phone: "N/A", backup: "Tamas Ari" },
+             { engineer: "Tamas Ari", customer: "GE Ultra 340 (Voluson)", phone: "N/A", backup: "Cristina Negru" },
+             { engineer: "Dan Vasiu", customer: "Thermofisher - 22A", phone: "N/A", backup: "Raul Lechinteanu" }
+        ];
+
+        // Datos Management (sin cambios)
+        let managementData = [
+            { name: "Emanuel Stasiuc", phone: "0741526304", role: "Quality Leader (SMT)" },
+            { name: "Dana Bar", phone: "0740772955", role: "Supervisor (SMT, Soldering & Conformal)" },
+            { name: "Ioana Paul", phone: "0766272793", role: "Quality Sector Manager (Medical Sector)" },
+            { name: "Csongor Miklos", phone: "0729069862", role: "Quality Sector Manager (Industrial Sector - ITW-992, Congatec-849, Esab-806, Sepura-678)" },
+            { name: "Rudolf Wakker", phone: "0746476000", role: "Quality Sector Manager (Industrial Sector - Alpitronic-18F, GE-316, Draeger Safety-632, Draeger Medical-604)" },
+            { name: "Adriana Cimpan", phone: "0734800909", role: "Manager Quality" }
+        ];
+
+        // --- v2.4: Datos DCS con URLs ---
+        const dcsData = [
+            { title: "Instructiune Validare Capete de Rola (TearDown)", id: "13979", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=13979" },
+            { title: "Instructiune Validare FPV (Common Process)", id: "14227", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=14227" },
+            { title: "Label Printing (General) cu numarul de etichete verificate prin Sampling (Reprint for *Oradea Only) + Replacement Label", id: "1593", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=1593" },
+            { title: "Instructiuni Imprimare / Reimprimare Label Printing (Oradea)", id: "14328", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=14328" },
+            { title: "SOP 34 (Material / Product Labeling)", id: "34", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=34" },
+            { title: "Multiscan SN Array", id: "8718", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=8718" },
+            { title: "PCBA - Board Handling", id: "1600", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=1600" },
+            { title: "ESD - Electrostatic Discharge Control Program", id: "", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=20" }, // ID vacío en PDF, URL asignada
+            { title: "MSD Control", id: "10429", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=10429" },
+            { title: "Moisture Sensitive Device Handling (Timp Bake Component MSD)", id: "76", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=76" },
+            { title: "Assistance Call Triggering Solutions (ACTS) System", id: "14549", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=14549" },
+            { title: "Lista Coduri Defecte", id: "8053", url: "https://docs.google.com/spreadsheets/d/1N-wneIO0XT54SN0E3P5GKXejhwEh8ooP/edit?gid=1743241788#gid=1743241788" }, // URL diferente
+            { title: "Inventory Management and Control NCM Process (MRB - TipQA)", id: "8901", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=8901" },
+            { title: "Formular NCM (Limba Romana) Rev. B.1", id: "14528", url: "https://docs.google.com/document/d/1DeDcOl6IZ3am2rrhDXJXxdku0waQEnnl/edit#heading=h.3znysh7" }, // URL diferente
+            { title: "Formular de Urmarire Placa First Piece (SMT)", id: "10159", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=10159" },
+            { title: "ASM Setup Runtime, AOI and TearDown Process (Mentiune Indepartare Kapton Pick-Up + Validare FPV peste 5 placi)", id: "10676", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=10676" },
+            { title: "lonograph (Wash Aquastorm)", id: "2555", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=2555" },
+            { title: "Testul C3 (Cleanliness Tester)", id: "10351", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=10351" },
+            { title: "SMT Line Verification", id: "7776", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=7776" },
+            { title: "Instructiune pentru Verificare Line Clearance (Produse Medicale Soldering)", id: "13887", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=13887" },
+            { title: "Formular Verificare Line Clearance (Produse Medicale Soldering)", id: "13886", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=13886" },
+            { title: "Formular Verificare Etichete Label Printing (General)", id: "1461", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=1655" }, // ID 1461 en PDF, URL 1655 asignada
+            { title: "Formular Label (Produse Medicale Finite / Mentionat in ABI pentru printare / Verificare / Incarcare)", id: "1593-01", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=2063" }, // URL 2063 asignada
+            { title: "Formular Wash SMT (Misprinted PCB)", id: "13422", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=13422" },
+            { title: "Formular Hold Notice pentru carantinarea placilor blocate", id: "2890", url: "https://cfwebapps.plexus.com/quality/secure/qdm/system/DocView.cfm?DOCID=2890" }
+        ];
+
+        // --- v2.5: Datos Proces Escaladare (Extraído del PDF) ---
+        // v6.0: Cambiado a 'let' para poder modificarlo
+        let escalationData = [
+            { incident: "Defecte consecutive - > Linia se Opreste -> Interventie Process - > Placile FAIL persista -> Productia nu schimba linia pe urmatorul model din plan -> Urgent Livrare", escalation: "QT Tech -> QE CFT", comment: "Daca la procesarea unui model, in urma oprirrei liniei si interventia Procesului -> escaladare catre Process Engineering, in continuare sunt inregistrate defecte sau rata de placi FAIL nu a fost diminuata (de exemplu, din 10 placi procesate, 4 sau 5 placi sunt in continuare FAIL) modelul este urgent pentru livrare/ productia nu schimba linia pe urmatorul model, se va escalada mai departe catre QE." },
+            { incident: "Deviatie expirata / Nu este inclus WO care ruleaza pe SMT (Linia se opreste)", escalation: "GL / SPV SMT -> Product Engineer", comment: "Linia va fi oprita, chiar daca productia va escalada acest lucru, noi vom trimite un e-mail in care se va mentiona ca productia a escaladat mai departe catre PE si se va indica deviatia si WO procesat in e-mailul trimis." },
+            { incident: "MPN Restricted (fara alte detalii in Agile cu referire la motivul restrictionarii pentru folosire / procesare)", escalation: "GL / SPV SMT -> Product Engineer", comment: "In cazul in care este gasita o componenta cu MPN de tip Restricted (Restrictionat) iar motivul pentru care a fost restrictionat este: \"to be send to reel\", din cauza faptului ca este pe tub si nu pe rola, din punct de vedere QT nu avem motive sa carantinam/blocam componentele daca nu sunt de tip: Z-Code. In cazurile in care nu sunt gasite informatii cu referire la motivul restrictionarii in Agile si nu gasiti informatii despre acest P/N sau MPN in e-mailuri, sau este precizat in Agile ca este nevoie de aprobare/concesie pentru a fi folosit, linia va fi oprita, productia va escalada catre PE." },
+            { incident: "Probleme Design", escalation: "QT Tech -> QE CFT", comment: "" },
+            { incident: "Deviatie de la process (ex: Plasare Manuala in loc de Placement) (Linia se opreste)", escalation: "QT Tech -> QE CFT", comment: "In cazul in care se doreste o plasare manuala sau productia doreste sa omita o componenta din Placement, va rog sa tineti cont daca sunt Produse Medicale Finite sau nu. In cazul in care este vorba de produse medicale finite, NU vom permite plasarea manuala sau omiterea componentei pe linie. Produse Medicale Finite AIC." },
+            { incident: "Placi Aeging", escalation: "QT Tech -> QE CFT", comment: "" },
+            { incident: "Discrepanta Pasta ABI SMT / Smema Box (Linia se opreste)", escalation: "GL / SPV SMT -> Process / Product Engineer", comment: "Cerinta QT va fi sa procesam conform instructiunilor de lucru ABI SMT/VKS. In cazul in care Smema Box cere alt tip de pasta, va fi anuntat Product Engineer sau Process Engineer pentru confirmarea tipului de pasta folosit pe linie. Va fi trimis un e-mail in urma escaladarii in care va fi specificat cine a fost sunat, folosirea unui alt tip de pasta decat ABI SMT." },
+            { incident: "MSL expirat (doar in cazurile in care placile sunt urgente de livrare / nu pot fi blocate cu Hold Notice dupa procesare SB)", escalation: "QT Tech -> QE CFT", comment: "Daca placile au fost procesate cu MSL expirat pe SA, acestea pot fi inspectate la statia AOI (MV1/MV3), vor fi segregate de cele care nu sunt afectate de MSL expirat, urmand sa fie procesate SB si inspectate la statia AOI (MV2/MV4). Dupa inspectie AOI, placile se vor segrega cu Hold Notice pana la primirea unui raspuns din partea QE CFT (Rework sau procesare mai departe)" },
+	    { incident: "Lipsa Abi (Linia se opreste)", escalation: "GL / SPV SMT -> CIM/CAM / Product Engineer", comment: "Daca ABI nu este incarcat/nu exista la verificarea liniei, sau nu poate fi deschis din cauza retelei, si acesta nu a ramas deschis pe linie la modelul respectiv, linia se opreste." },
+            { incident: "Job Placement diferit de ABI SMT / Discrepanta Revizie Job (Linia se opreste)", escalation: "GL / SPV SMT -> CIM/CAM / Product Engineer", comment: "Linia va fi oprita, chiar daca productia va escalada acest lucru, noi vom trimite un e-mail in care se va mentiona ca productia a escaladat mai departe in care se va indica modelul si WO afectat." },
+            { incident: "Deviatie de la process (exemplu: adaugare flux, alt P/N decat cel aprobat)", escalation: "QT Tech -> QE CFT", comment: "" },
+            { incident: "Deviatie de la procedura FPV / Accelerata (AOI / XRAY / TEST, Linia se opreste)", escalation: "QT Tech -> QT SPV", comment: "Daca in planul SMT, modelul si WO afectat nu este trecut cu comentariul \"Fara FPV\", productia nu are operator/tehnician, pentru validare AOI/X-Ray sau Test, si doreste procesarea integrala a WO pe linie, va rog sa escaladati catre QT SPV. Daca se face Change-Over lavem nevoie de accelerata validata pana la X-Ray/Test) si nu este operator/Tehnician, se va escalada mai departe." },
+            { incident: "GSF Nefunctional / Calculator SMT / AOI Nefunctional (Linia se opreste)", escalation: "GL / SPV SMT -> IT", comment: "Daca GSF nu functioneaza pe vreo linie sau pe toate liniile, fara sistem nu lucram, liniile respective se vor opri, urmand ca productia sa escaladeze mai departe catre IT." },
+            { incident: "Echipament AOI / AAD Nefunctional (Nu se pot inspecta placile)", escalation: "QT Tech -> QE CFT", comment: "Daca placile nu se pot inspecta in timp real la AOI, linia va fi oprita, urmand sa fie escaladat la QE CFT daca este de acord cu inspectia placilor la un alt echipament AOI de pe alta linie. Daca placile nu se pot inspecta la AAD, va fi evaluat numarul de componente, prezenta si orientarile verificate pe placa de catre QT. Daca numarul de componente inspectate sunt putine si riscul escape-ului in urma inspectiei vizuale de catre operatorul AAD este minim, productia poate fi reluata cu conditia sa fie verificate placile aleator din ora in ora in timpul procesarii. Daca riscul de escape defecte este ridicat, se va continua procedura de escaladare." },
+            { incident: "Intarziere / Absente Motivate sau Nemotivate / Concediu", escalation: "QT Tech -> QT Lead", comment: "Pentru zilele in care nu puteti sa veniti la lucru din cauza unor probleme personale sau medicale, va rog sa scrieti acest lucru pe grupul QT de Whatsapp fara sa indicati motivul personal. Scopul este sa vada si restul colegilor QT inainte de intrare in schimb, pentru acoperirea liniilor restante. Motivul pentru care veti lipsi, imi puteti scrie personal in privat." },
+            { incident: "Parasirea incintei Plexus in timpul programului / probleme personale / probleme medicale", escalation: "QT Tech -> QT Lead", comment: "Daca sunteti nevoiti sa abandonati locul de munca, OBLIGATORIU se va face Time Off inainte sa parasiti incinta PLEXUS. Daca inevitabil ajungeti tarziu la lucru si nu aveti posibilitatea sa recuperati ora / orele in aceeasi zi de lucru, se va face cerere de Time Off in sistem pentru orele lipsa conform programului, urmand sa anuntati QT Leader. In cazul in care QT Leader nu raspunde / nu este disponibil, va rog sa continuati procedura de escaladare mai departe catre QT SPV. Daca ora sau orele lipsa sunt recuperate in aceeasi zi de lucru, nu este necesar Time Off in Time and Attendance." }
+        ];
+
+        // --- v2.4: Datos Email Templates ---
+        const emailTemplatesData = [
+            { title: "Template Prezentare Defecte (Escape)", url: "https://docs.google.com/spreadsheets/d/1PBEGuMiv3K3qCsCAV5tHzkbrP9iMJg5zlUSqBZihkJE/edit?gid=746220389#gid=746220389" },
+            { title: "Template Wrong Process SMT (Defects: Missing, Open, Misplaced)", url: "template.html" },
+            { title: "Template Wrong Orientation SMT", url: "template.html" },
+            { title: "Template Wrong Part Number SMT", url: "template.html" },
+            { title: "Template MSL Expirat SMT", url: "template.html" },
+            { title: "Template Soldering Defects (Bridge, Open, Insuficienta, Misplaced SMT)", url: "template.html" },
+            { title: "Template Capete de Rola (P/N Gresit Tear-Down)", url: "template.html" },
+            { title: "Template Poze AOI", url: "template.html" },
+            { title: "Template Insertion Defects (Wrong P/N, Improper Mounting Height, Missing / Extra Comp., Wrong Orientation)", url: "template.html" }
+        ];
+
+        
+        // v2.3: Paleta de colores para DCS
+        const pastelColorClasses = [
+            'bg-pastel-blue', 
+            'bg-pastel-green', 
+            'bg-pastel-pink', 
+            'bg-pastel-yellow', 
+            'bg-pastel-purple', 
+            'bg-pastel-orange', 
+            'bg-pastel-grey'
+        ];
+
+        let currentLang = localStorage.getItem('lang') || 'ro';
+        let currentTheme = localStorage.getItem('theme') || 'theme-light';
+        let isAdmin = false; // v1.9: Estado de Admin
+        let isLoggedIn = false; // v2.0: Estado de Login
+
+        // --- Selectores de UI ---
+        const pageContainer = document.getElementById('page-container');
+        // Selectores de Menú Móvil ELIMINADOS
+        // const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        // const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        // const mobileMenuOpenBtn = document.getElementById('mobile-menu-open-btn');
+        
+        const langDisplayDesktop = document.getElementById('current-language-display-desktop');
+        // const langDisplayMobile = document.getElementById('current-language-display-mobile'); // Eliminado
+        const themeDisplayDesktop = document.getElementById('current-theme-display-desktop');
+        // const themeDisplayMobile = document.getElementById('current-theme-display-mobile'); // Eliminado
+        
+        // --- Selectores de Modal (v2.0) ---
+        const loginModalOverlay = document.getElementById('login-modal-overlay');
+        const loginModalBox = document.getElementById('login-modal-box');
+        const userMenuBtn = document.getElementById('user-menu-btn');
+        const userMenuIcon = document.getElementById('user-menu-icon');
+        const loginSubmitBtn = document.getElementById('login-submit-btn');
+        const loginModalCloseBtn = document.getElementById('login-modal-close-btn');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const loginUsername = document.getElementById('login-username');
+        const loginPassword = document.getElementById('login-password');
+
+        // --- Selectores Modal Info (vMod) ---
+        const infoModalOverlay = document.getElementById('info-modal-overlay');
+        const infoModalCloseBtn = document.getElementById('info-modal-close-btn');
+        const infoModalOkBtn = document.getElementById('info-modal-ok-btn');
+
+
+        // --- Funciones de Renderizado de Página (v1.9) ---
+
+        // ==================================================================
+        // --- MODIFICACIÓN: renderHomePage() ahora es condicional ---
+        // ==================================================================
+        function renderHomePage() {
+            
+            // Si el usuario ESTÁ logueado (es admin), muestra las 15 tarjetas nuevas.
+            if (isLoggedIn) {
+                return `
+                    <section class="mb-12">
+                        <h2 class="text-3xl font-bold text-center mb-8" data-key="quick-access-title">Acces Rapid</h2>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                            
+                            <a href="https://psom.plexus.com/SMS/" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="people-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">SMS - Meetings</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Accesați minutele și prezentările ședințelor SMS.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+
+                            <a href="https://app.powerbi.com/groups/me/apps/4b8b6e40-97e5-4604-9029-352905bfe3ad/reports/817329b9-03c4-4874-b24e-f3d3c5fffbda/ReportSection7e7e10d7306a88193d62?conversationId=15232&commentId=19687&bookmarkGuid=91ae3a07-50ea-49aa-8e1e-13ebbbd8b07a&OpenAppFromWindowsPCAndTablet=false&openReportSource=Commenting&experience=power-bi" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="hardware-chip-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">DPU SMT - Daily Meeting</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Vizualizați datele DPU SMT pentru ședința zilnică.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://docs.google.com/spreadsheets/d/1mFTgRLvhh4c_YyiUvrqHTeONPFoOGvbhnAYnTRDE2mw/edit?gid=0#gid=0" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="sync-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">SCRAP SMT - Tracking</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Urmăriți în timp real datele despre SCRAP SMT.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://docs.google.com/presentation/d/1e086VtWDXdXHgQglBBOtgzGKpCoercrkAVPa9redLqs/edit?slide=id.g3727bdcbb46_0_0#slide=id.g3727bdcbb46_0_0" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="trending-up-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Prezentare SCRAP SMT - Weekly</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Raportul săptămânal de prezentare a SCRAP-ului SMT.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://app.powerbi.com/groups/me/apps/4b8b6e40-97e5-4604-9029-352905bfe3ad/reports/42f71254-3334-4347-b8bb-26f75f2f9daa/ReportSection8014306e5a18dc879097?conversationId=13856&commentId=17989&bookmarkGuid=18c0eae4-c3ed-49c0-bba5-0b29f41aa6f9&OpenAppFromWindowsPCAndTablet=false&openReportSource=Commenting&experience=power-bi" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="stats-chart-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">FPV Yield - Last 3 WO</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Analiza FPV Yield pentru ultimele 3 Work Ordere.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://drive.google.com/drive/folders/1TY-NjHh1JKWbjTVGepjrk6_roVdzv-T1" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="calculator-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Calculare FPV - Weekly</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Instrument pentru calcularea săptămânală a FPV.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://app.powerbi.com/groups/me/apps/4b8b6e40-97e5-4604-9029-352905bfe3ad/reports/817329b9-03c4-4874-b24e-f3d3c5fffbda/ReportSection7e7e10d7306a88193d62?conversationId=20262&commentId=25752&bookmarkGuid=8502f090-aed2-4cee-b72b-a4e9e03e1109&OpenAppFromWindowsPCAndTablet=false&openReportSource=Commenting&experience=power-bi" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="flame-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">DPU Soldering - Daily Meeting</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Vizualizați datele DPU Soldering pentru ședința zilnică.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://docs.google.com/spreadsheets/d/1GMwETZ1N7XSNaxAxdt2RuTP-eveZRuVKFEqFt_t2XcY/edit?gid=803055091#gid=803055091" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="stats-chart-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Yield Soldering & Conformal</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Raport Yield combinat pentru Soldering și Conformal Coating.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://docs.google.com/spreadsheets/d/19h_mp_aeZdJzMAD0P9GOJV-ypxx3y5FRa1vgwZtlCgo/edit?gid=1719679041#gid=1719679041" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="sync-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">SCRAP Soldering - Tracking</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Urmăriți în timp real datele despre SCRAP la Soldering.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://docs.google.com/presentation/d/1gAMxmQqPiDgSjLwA5shyonq9pwl3tPUTsKDEVxm0xH4/edit?slide=id.p1#slide=id.p1" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="trending-up-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Prezentare SCRAP Soldering</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Raportul săptămânal de prezentare a SCRAP-ului la Soldering.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://docs.google.com/spreadsheets/d/1sCwI2SBPzIH_-_kD471YGkGmVDdDqHDphx79DjzoR0g/edit?gid=0#gid=0" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="shield-checkmark-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">DPU Conformal - Daily</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Datele DPU Conformal Coating pentru ședința zilnică.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://docs.google.com/spreadsheets/d/11LwN4hlZjw2FIQHe2zESRmWbWvp6I4NpBnuvho94uIA/edit" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="alert-circle-outline" class="card-icon red text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Incidente Wrong Part - SMT</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Bază de date și analiza incidentelor Wrong Part Number SMT.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="#" id="show-value-check-info" class="qa-card block p-6 rounded-lg">
+    			<div class="flex items-center mb-4">
+        			<ion-icon name="server-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+        		<h3 class="text-xl font-semibold">Value Check Results - TearDown</h3>
+    			</div>
+    			<p class="text-sm" style="color: var(--color-text-secondary);">
+        			<p class="text-sm" style="color: var(--color-text-secondary);">
+        			Bază de date privind capetele de rolă măsurate la stația TearDown.
+    				</p>
+    			<div class="mt-4 flex items-center text-accent">
+ 				<span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+				<ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+    				</div>
+				</a>
+                            
+                            <a href="https://docs.google.com/spreadsheets/d/1W6ivjqf6Qs1ozBidUFmkk-tToQOypOoL9hDC7kPKB98/edit" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="document-text-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Verificare Ribbon & Label</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Procedura și log-ul săptămânal pentru Ribbon & Label.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://drive.google.com/drive/folders/1LVY2hIdtvGINkWZGUZRH93igiAP7rrJs" target="_blank" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="newspaper-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Formulare #1512</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Acces rapid la formularele #1512 și baza de date.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+
+                        </div>
+                    </section>
+
+                    <footer class="text-center py-8 text-sm" style="color: var(--color-text-secondary);">
+                        <p class="mb-2" data-key="footer-copyright">
+                            </p>
+                        </footer>
+                `;
+            } 
+            
+            // Si el usuario NO ESTÁ logueado, muestra la página de bienvenida original.
+            else {
+                return `
+                    <section class="mb-12 text-center py-10 rounded-lg" style="background-color: var(--color-bg-secondary);">
+                        <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-4" style="color: var(--color-text-primary);">
+                            <span data-key="main-title-part1">Bun venit la</span> <span style="color: var(--color-accent);" data-key="main-title-part2">Portalul QA</span>
+                        </h2>
+                        <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8" style="color: var(--color-text-secondary);" data-key="hero-description">
+                            Acces centralizat la resurse, instrumente și rapoarte pentru echipa de control al calității.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <a href="https://login.accuristech.com/?v=2.0&destinationUrl=https%3A%2F%2Fsam.accuristech.com%3A43%2Fsso%2Foauth2%2Fauthorize%3Fclient_id%3DEngineering-ProductDesign-ERC-Portal-Prod-4Th6JHa09r%26response_type%3Dcode%26nonce%3D78556125-be8b-4073-b3a1-05cdcbce181b%26scope%3Dopenid%2520email%2520profile%2520saml_attributes%2520account%26redirect_uri%3Dhttps%253A%252F%252Flogin.ihserc.com%252Flogin%252Ferc%253FloginCode%253DSAM_AUTHORIZATION%26iss%3Dnull%26subAcctId%3Dnull%26state%3D%2526clientIP%253D81.196.45.37%2526subAccountId%253Dnull" target="_blank" rel="noopener noreferrer" class="btn-primary py-3 px-6 rounded-lg font-semibold text-base" data-key="go-to-test-cases">
+                                Accesare IPC
+                            </a>
+                            <a href="#" data-page="dcs" class="btn-secondary py-3 px-6 rounded-lg font-semibold text-base" data-key="view-documentation">
+                                Vezi Documentația
+                            </a>
+                        </div>
+                    </section>
+
+                    <section class="mb-12">
+                        <h2 class="text-3xl font-bold text-center mb-8" data-key="quick-access-title">Acces Rapid</h2>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            
+                            <a href="https://script.google.com/a/macros/plexus.com/s/AKfycbwT79uqzgw0df4PwbcH4_YlW0mFNXsnwCVmdRbWZq7lpYfSLJIrGwe9oy6qQjSZlQG3/exec" target="_blank" rel="noopener noreferrer" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="server-outline" class="card-icon text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">SMT QT Teardown Validation</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Verifică Capetele de Role introduse la stația Teardown de către operatori. Verificare Marking, Agile, Datasheet.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+
+                            <a href="http://neen-ap-pd-001/bugzilla/buglist.cgi?Bugzilla_restrictlogin=on&classification=Test%20Inspection&component=Quality%20Escalation&list_id=6670&query_format=advanced&resolution=---" target="_blank" rel="noopener noreferrer" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="bug-outline" class="card-icon red text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Verificare Ticket Bugzilla AOI</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Link direct către lista Ticket-elor Bugzilla rămase deschise. Verifică dacă nu ai uitat să închizi un Ticket.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+
+                            <a href="https://script.google.com/a/macros/plexus.com/s/AKfycby7Vee-NReVuoLLDs4iIClcFHCvAhaoyg5-bDsZXAr6SoC3kmvz29bzK5TYuyQCZJVMkA/exec" target="_blank" rel="noopener noreferrer" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="document-text-outline" class="card-icon green text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold">Validare Form #7776</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);">
+                                    Verifică și validează formularele #7776 completate de către operatori pe fiecare linie SMT.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://webappsemea.eu.plexus.com/osticket/" target="_blank" rel="noopener noreferrer" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="ticket-outline" class="card-icon green text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold" data-key="test-manager-title">Test C3 - Ticket</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);" data-key="test-manager-description">
+                                    Accesează pentru crearea unui Ticket, necesar la testarea plăcilor la Testul C3.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+
+                            <a href="https://drive.google.com/drive/folders/1QVARph4C7CHY9_IHaN_SHpcZq37vGEmQ" target="_blank" rel="noopener noreferrer" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="book-outline" class="card-icon blue text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold" data-key="qa-guides-title">Ghiduri și Prezentări QA</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);" data-key="qa-guides-description">
+                                    Documentație internă, prezentări și instrucțiuni pas cu pas + schițe tehnice privind orientarea unor componente (Grad ridicat de complexitate)
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+
+                            <a href="#" data-page="team" class="qa-card block p-6 rounded-lg">
+                                <div class="flex items-center mb-4">
+                                    <ion-icon name="people-outline" class="card-icon purple text-4xl mr-4"></ion-icon>
+                                    <h3 class="text-xl font-semibold" data-key="our-team-title">Echipa Noastră</h3>
+                                </div>
+                                <p class="text-sm" style="color: var(--color-text-secondary);" data-key="our-team-description">
+                                    Contactează membrii echipei, QE CFT alocați pe proiecte, QE Supplier alocați pe clienți, QA Lead.
+                                </p>
+                                <div class="mt-4 flex items-center text-accent">
+                                    <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                                    <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                                </div>
+                            </a>
+
+                        </div>
+                    </section>
+
+                    <footer class="text-center py-8 text-sm" style="color: var(--color-text-secondary);">
+                        <p class="mb-2" data-key="footer-copyright">
+                            </p>
+                        </footer>
+                `;
+            }
+        }
+        // ==================================================================
+        // --- FIN DE LA MODIFICACIÓN ---
+        // ==================================================================
+
+
+        function renderTeamPage() {
+            const editable = isAdmin ? 'contenteditable="true"' : 'contenteditable="false"';
+            
+            // Construir tarjetas de ingenieros CFT (v2.1)
+            let cftCards = cftData.map(person => `
+                <div class="contact-card border-blue"> <div class="contact-card-header" ${editable} data-field="engineer">${person.engineer}</div>
+                    <div class="contact-card-body">
+                        <span class="customer" ${editable} data-field="customer">${person.customer}</span> <div class="detail">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <span ${editable} data-field="phone">${person.phone}</span>
+                        </div>
+                    </div>
+                    <div class="contact-card-footer">
+                        <strong>Back-up:</strong>
+                        <span ${editable} data-field="backup">${person.backup}</span>
+                    </div>
+                </div>
+            `).join('');
+
+             // Construir tarjetas de ingenieros Supplier (v2.1 NUEVO)
+            let supplierCards = supplierData.map(person => `
+                <div class="contact-card border-yellow"> <div class="contact-card-header" ${editable} data-field="engineer">${person.engineer}</div>
+                    <div class="contact-card-body">
+                         <span class="customer" ${editable} data-field="customer">${person.customer}</span> </div>
+                    <div class="contact-card-footer">
+                        <strong>Back-up:</strong>
+                        <span ${editable} data-field="backup">${person.backup}</span>
+                    </div>
+                </div>
+            `).join('');
+
+
+            // Construir tarjetas de management (v2.0)
+            let mgmtCards = managementData.map(person => `
+                <div class="contact-card border-purple"> <div class="contact-card-header" ${editable} data-field="name">${person.name}</div>
+                    <div class="contact-card-body">
+                        <span class="role" ${editable} data-field="role">${person.role}</span>
+                         <div class="detail">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <span ${editable} data-field="phone">${person.phone}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            return `
+                <section class="mb-12">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-8 p-6 rounded-lg" style="background-color: var(--color-bg-secondary); box-shadow: var(--color-shadow);">
+                        <h2 class="text-3xl font-bold mb-4 sm:mb-0" data-key="team-page-title">Contacte Echipa QA</h2>
+                        ${isAdmin ? `
+                            <div class="flex items-center">
+                                <span id="save-message" class="text-sm mr-4" style="color: var(--color-accent);"></span>
+                                <button id="save-team-data" class="btn-primary py-2 px-5 rounded-lg font-semibold text-sm" data-key="team-save-changes">
+                                    Salvare Modificări
+                                </button>
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <a href="#" data-page="qe-cft-340" class="btn-add py-2 px-5 rounded-lg font-semibold text-sm">QE CFT Client - 340</a>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-6" data-key="team-engineers-title">Ingineri Calitate (QE CFT)</h3>
+                    <div id="cft-card-container" class="contact-grid">
+                        ${cftCards}
+                    </div>
+
+                     <h3 class="text-2xl font-semibold mt-12 mb-6" data-key="team-supplier-engineers-title">Ingineri Calitate (QE Supplier)</h3>
+                    <div id="supplier-card-container" class="contact-grid">
+                        ${supplierCards}
+                    </div>
+
+                    <h3 class="text-2xl font-semibold mt-12 mb-6" data-key="team-management-title">Management Calitate</h3>
+                    <div id="management-card-container" class="contact-grid">
+                        ${mgmtCards}
+                    </div>
+
+                </section>
+            `;
+        }
+
+        // --- v2.4: Función de Renderizado de Página DCS (Lista coloreada con enlaces) ---
+        function renderDcsPage() {
+            // Función auxiliar para obtener una clase de color aleatoria
+            const getRandomColorClass = () => pastelColorClasses[Math.floor(Math.random() * pastelColorClasses.length)];
+
+            let dcsListItems = dcsData.map(doc => `
+                <a href="${doc.url}" target="_blank" rel="noopener noreferrer" class="dcs-list-item ${getRandomColorClass()}">
+                    <div class="dcs-title">${doc.title}</div>
+                    <div class="dcs-id">
+                        ${doc.id ? `Document DCS ID: ${doc.id}` : 'Document General'}
+                    </div>
+                </a>
+            `).join('');
+
+             return `
+                <section class="mb-12">
+                    <div class="flex justify-between items-center mb-8 p-6 rounded-lg" style="background-color: var(--color-bg-secondary); box-shadow: var(--color-shadow);">
+                        <h2 class="text-3xl font-bold" data-key="dcs-page-title">Documente Importante DCS</h2>
+                        </div>
+
+                    <div class="dcs-list-container">
+                        ${dcsListItems}
+                    </div>
+                </section>
+            `;
+        }
+
+// --- v6.4: Función de Renderizado para Página QE CFT 340 (Ajuste de Teléfono) ---
+        function renderQeCft340Page() {
+            
+            // --- Helper function para encontrar el nombre *correcto* del Owner ---
+            // Esto maneja discrepancias como "Daniela lle" vs "Daniela Ile"
+            const getCanonicalOwner = (nameFromPdf) => {
+                const lowerName = nameFromPdf.toLowerCase();
+                
+                // Intenta encontrar un Owner de cftData cuyo primer nombre esté contenido en el nombre del PDF
+                const foundEngineer = cftData.find(person => 
+                    lowerName.includes(person.engineer.split(' ')[0].toLowerCase())
+                );
+                
+                if (foundEngineer) {
+                    return foundEngineer.engineer; // Devuelve el nombre canónico (ej: "Daniela Ile")
+                }
+                
+                return nameFromPdf; // Fallback si no se encuentra
+            };
+
+            // 1. Agrupar los datos por Owner (CANONICAL), y luego por Project
+            const groupedData = qeCft340Data.reduce((acc, item) => {
+                const { asm, project } = item;
+                // Normalizar el nombre ANTES de usarlo como clave
+                const owner = getCanonicalOwner(item.owner); 
+                
+                if (!acc[owner]) {
+                    acc[owner] = {};
+                }
+                
+                if (!acc[owner][project]) {
+                    acc[owner][project] = [];
+                }
+                
+                // Añadir el Asm. Number a la lista
+                acc[owner][project].push(asm);
+                
+                return acc;
+            }, {}); // El acumulador inicial es un objeto vacío
+
+            
+            // 2. Construir el HTML basado en la estructura agrupada
+            let htmlContent = '';
+
+            // Ordenar Owners alfabéticamente
+            const sortedOwners = Object.keys(groupedData).sort();
+
+            for (const owner of sortedOwners) {
+
+                // Buscar la información de contacto (teléfono)
+                const ownerInfo = cftData.find(person => person.engineer === owner);
+                const phone = ownerInfo ? ownerInfo.phone : "N/A"; // Obtener teléfono
+
+                // --- INICIO DE LA MODIFICACIÓN ---
+                // Añadir un encabezado para el Owner (con icono y teléfono al lado del nombre)
+                // Usamos 'flex-wrap' y 'items-baseline' para un mejor alineamiento en móviles
+                htmlContent += `<h2 class="text-2xl font-bold mt-8 mb-4 flex flex-wrap items-baseline" style="color: var(--color-text-primary); border-bottom: 2px solid var(--color-accent); padding-bottom: 4px; row-gap: 4px;">
+                                    <ion-icon name="call-outline" class="mr-2 text-xl" style="color: var(--color-accent);"></ion-icon>
+                                    <span>${owner}</span>
+                                    <span class="text-lg font-medium ml-3" style="color: var(--color-text-secondary);">Nr. Telefon: ${phone}</span>
+                                </h2>`;
+                // --- FIN DE LA MODIFICACIÓN ---
+                
+                const projects = groupedData[owner];
+                // Ordenar Projects alfabéticamente
+                const sortedProjects = Object.keys(projects).sort();
+
+                for (const project of sortedProjects) {
+                    // Añadir un sub-encabezado para el Project
+                    htmlContent += `<h3 class="text-xl font-semibold mb-3" style="color: var(--color-text-secondary);">
+                                        <ion-icon name="folder-outline" class="mr-2" style="vertical-align: -0.125em;"></ion-icon>${project}
+                                    </h3>`;
+                    
+                    // Obtener ASMs, eliminar duplicados y ordenar
+                    const asms = projects[project];
+                    const uniqueSortedAsms = [...new Set(asms)].sort(); // Elimina duplicados y ordena
+                    
+                    // Mapear ASMs a "tags"
+                    const asmTags = uniqueSortedAsms.map(asm => 
+                        `<span class="inline-block bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                            ${asm}
+                        </span>`
+                    ).join('');
+                    
+                    // Envolver los tags en un 'qa-card' con un contenedor flex-wrap
+                    htmlContent += `<div class="qa-card rounded-lg p-4 mb-6">
+                                        <div class="flex flex-wrap gap-2">
+                                            ${asmTags}
+                                        </div>
+                                    </div>`;
+                }
+            }
+
+            // 3. Devolver la sección completa
+            return `
+                <section class="mb-12">
+                    <div class="flex justify-between items-center mb-8 p-6 rounded-lg" style="background-color: var(--color-bg-secondary); box-shadow: var(--color-shadow);">
+                        <h2 class="text-3xl font-bold" data-key="qe-cft-340-title">Proces Escaladare SMT - QE CFT 340</h2>
+                    </div>
+
+                    ${htmlContent}
+                    
+                </section>
+            `;
+        }
+
+// --- v7.4: Función de Renderizado para Página EIN (Layout Horizontal - No Desplegable) ---
+        function renderEinEquipmentPage() {
+
+            // --- Construir Grupo 1: SMT ---
+            let group1Rows = einEquipmentData.map(item => {
+                if (!item.smt) return '';
+                return `
+                <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(52, 152, 219, 0.1);">
+                    <td class="p-3 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold" style="color: var(--color-text-primary);">${item.smt}</span>
+                            <span class="text-xs font-medium" style="color: var(--color-text-secondary);">${item.einAoi || 'N/A'}</span>
+                        </div>
+                    </td>
+                </tr>
+                `;
+            }).join('');
+            let group1Html = `
+                <div class="qa-card rounded-lg overflow-hidden flex flex-col h-full">
+                    <h3 class="text-xl font-bold p-4 flex items-center" style="color: var(--color-icon-blue); background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border);">
+                        <ion-icon name="hardware-chip-outline" class="mr-2 text-xl"></ion-icon>
+                        SMT
+                    </h3>
+                    <div class="overflow-x-auto flex-grow">
+                        <table class="w-full text-xs">
+                            <thead style="background-color: var(--color-bg-primary); border-bottom: 1px solid var(--color-border);">
+                                <tr>
+                                    <th class="p-3 text-left font-semibold uppercase" style="color: var(--color-text-secondary);">Linie SMT & EIN AOI</th>
+                                </tr>
+                            </thead>
+                            <tbody>${group1Rows}</tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            // --- Construir Grupo 2: Wave / Selective Touch-Up ---
+            let group2Rows = einEquipmentData.map(item => {
+                if (!item.selective) return '';
+                return `
+                <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(46, 204, 113, 0.1);">
+                    <td class="p-3 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold" style="color: var(--color-text-primary);">${item.selective}</span>
+                            <span class="text-xs font-medium" style="color: var(--color-text-secondary);">
+                                Touch-Up: ${item.einStatieSel || 'N/A'}, ${item.touchUpSel || 'N/A'}
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                `;
+            }).join('');
+            let group2Html = `
+                <div class="qa-card rounded-lg overflow-hidden flex flex-col h-full">
+                    <h3 class="text-xl font-bold p-4 flex items-center" style="color: var(--color-icon-green); background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border);">
+                        <ion-icon name="flame-outline" class="mr-2 text-xl"></ion-icon>
+                        Wave / Selective
+                    </h3>
+                    <div class="overflow-x-auto flex-grow">
+                        <table class="w-full text-xs">
+                            <thead style="background-color: var(--color-bg-primary); border-bottom: 1px solid var(--color-border);">
+                                <tr>
+                                    <th class="p-3 text-left font-semibold uppercase" style="color: var(--color-text-secondary);">Stație & EIN Touch-Up</th>
+                                </tr>
+                            </thead>
+                            <tbody>${group2Rows}</tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+
+            // --- Construir Grupo 3: Conformal ---
+            let group3Rows = einEquipmentData.map(item => {
+                if (!item.conformal) return '';
+                return `
+                <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(241, 196, 15, 0.1);">
+                    <td class="p-3 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold" style="color: var(--color-text-primary);">${item.conformal}</span>
+                            <span class="text-xs font-medium" style="color: var(--color-text-secondary);">${item.einConf || 'N/A'}</span>
+                        </div>
+                    </td>
+                </tr>
+                `;
+            }).join('');
+            let group3Html = `
+                <div class="qa-card rounded-lg overflow-hidden flex flex-col h-full">
+                    <h3 class="text-xl font-bold p-4 flex items-center" style="color: var(--color-icon-yellow); background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border);">
+                        <ion-icon name="shield-checkmark-outline" class="mr-2 text-xl"></ion-icon>
+                        Conformal
+                    </h3>
+                    <div class="overflow-x-auto flex-grow">
+                        <table class="w-full text-xs">
+                            <thead style="background-color: var(--color-bg-primary); border-bottom: 1px solid var(--color-border);">
+                                <tr>
+                                    <th class="p-3 text-left font-semibold uppercase" style="color: var(--color-text-secondary);">Stație & EIN Conformal</th>
+                                </tr>
+                            </thead>
+                            <tbody>${group3Rows}</tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            // --- Construir Grupo 4: Touch-Up Conformal ---
+            let group4Rows = einEquipmentData.map(item => {
+                if (!item.conformal) return ''; // Usar 'conformal' como ancla
+
+                let ein = 'N/A';
+                let name = `Touch-Up ${item.conformal}`;
+                const parts = item.einTouchUpConf.split('/').map(p => p.trim());
+                const einPart = parts.find(p => !isNaN(parseInt(p)) || p.toLowerCase().includes('lipsa'));
+                const namePart = parts.find(p => p !== einPart && p.length > 0);
+                
+                if (einPart) ein = einPart;
+                if (namePart) name = namePart;
+                
+                return `
+                <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(155, 89, 182, 0.1);">
+                    <td class="p-3 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold" style="color: var(--color-text-primary);">${name}</span>
+                            <span class="text-xs font-medium" style="color: var(--color-text-secondary);">${ein}</span>
+                        </div>
+                    </td>
+                </tr>
+                `;
+            }).join('');
+             let group4Html = `
+                <div class="qa-card rounded-lg overflow-hidden flex flex-col h-full">
+                    <h3 class="text-xl font-bold p-4 flex items-center" style="color: var(--color-icon-purple); background-color: var(--color-bg-secondary); border-bottom: 1px solid var(--color-border);">
+                        <ion-icon name="color-palette-outline" class="mr-2 text-xl"></ion-icon>
+                        Touch-Up Conformal
+                    </h3>
+                    <div class="overflow-x-auto flex-grow">
+                        <table class="w-full text-xs">
+                            <thead style="background-color: var(--color-bg-primary); border-bottom: 1px solid var(--color-border);">
+                                <tr>
+                                    <th class="p-3 text-left font-semibold uppercase" style="color: var(--color-text-secondary);">Stație & EIN Touch-Up</th>
+                                </tr>
+                            </thead>
+                            <tbody>${group4Rows}</tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+
+            // --- Ensamblar la Página Completa ---
+            return `
+                <section class="mb-12">
+                    <div class="flex justify-between items-center mb-8 p-6 rounded-lg" style="background-color: var(--color-bg-secondary); box-shadow: var(--color-shadow);">
+                        <h2 class="text-3xl font-bold" data-key="ein-equip-title">EIN Equipments (A.C.T.S)</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        ${group1Html}
+                        ${group2Html}
+                        ${group3Html}
+                        ${group4Html}
+                    </div>
+                    </section>
+            `;
+        }
+
+        // --- v2.4: NUEVA Función de Renderizado de Página Email Templates ---
+        function renderEmailTemplatesPage() {
+            let templateCards = emailTemplatesData.map(template => `
+                <a href="${template.url}" target="_blank" rel="noopener noreferrer" class="qa-card block p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <ion-icon name="mail-outline" class="card-icon purple text-4xl mr-4"></ion-icon> 
+                        <h3 class="text-xl font-semibold">${template.title}</h3>
+                    </div>
+                    <div class="mt-4 flex items-center text-accent">
+                        <span class="text-sm font-medium" data-key="go-to-link">Accesați</span>
+                        <ion-icon name="arrow-forward-outline" class="ml-2 text-base"></ion-icon>
+                    </div>
+                </a>
+            `).join('');
+
+             return `
+                <section class="mb-12">
+                    <div class="flex justify-between items-center mb-8 p-6 rounded-lg" style="background-color: var(--color-bg-secondary); box-shadow: var(--color-shadow);">
+                        <h2 class="text-3xl font-bold" data-key="email-templates-title">Template (E-Mail)</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${templateCards}
+                    </div>
+                </section>
+            `;
+        }
+
+        // --- v6.0: Función de Renderizado para la Página de Escalación (con edición admin) ---
+        function renderEscalationPage() {
+            const editable = isAdmin ? 'contenteditable="true"' : ''; // v6.0: Hacer editable si es admin
+            
+            let tableRows = escalationData.map(item => `
+                <tr class="border-b escalation-row" style="border-color: var(--color-border);">
+                    <td class="p-3 md:p-4 align-top text-sm font-medium" style="color: var(--color-text-primary); min-width: 250px;" data-field="incident" ${editable}>${item.incident}</td>
+                    <td class="p-3 md:p-4 align-top text-sm font-semibold" style="color: var(--color-accent); min-width: 150px;" data-field="escalation" ${editable}>${item.escalation}</td>
+                    <td class="p-3 md:p-4 align-top text-sm" style="color: var(--color-text-secondary); min-width: 400px;" data-field="comment" ${editable}>${item.comment}</td>
+                </tr>
+            `).join('');
+
+            return `
+                <section class="mb-12">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-8 p-6 rounded-lg" style="background-color: var(--color-bg-secondary); box-shadow: var(--color-shadow);">
+                        <h2 class="text-3xl font-bold mb-4 sm:mb-0" data-key="escalation-page-title">Proces Escaladare SMT</h2>
+                        ${isAdmin ? `
+                            <div class="flex items-center">
+                                <span id="save-escalation-message" class="text-sm mr-4" style="color: var(--color-accent);"></span>
+                                <button id="save-escalation-data" class="btn-primary py-2 px-5 rounded-lg font-semibold text-sm" data-key="escalation-save-changes">
+                                    Salvare Modificări
+                                </button>
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <h3 class="text-2xl font-semibold mb-6 text-center" style="color: var(--color-text-primary);">ORADEA 2.0 - Escalation Path</h3>
+
+                    <div class="qa-card rounded-lg overflow-hidden mb-8">
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-[1400px] text-xs border-collapse">
+                                
+                                <thead style="background-color: var(--color-bg-primary); border-bottom: 2px solid var(--color-border);">
+                                    <tr>
+                                        <th class="p-3 text-center"></th> 
+                                        <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">Level</th>
+                                        <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">Timing (Min)</th>
+                                        <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);" colspan="2">Common Processes</th> 
+                                        <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">PRODUCT System setup</th> <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">PRODUCT Backend Equipment</th> <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">TEST</th> <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">MANUFACTURING</th> <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">QUALITY</th> <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">IC</th> <th class="p-3 text-center font-semibold uppercase" style="color: var(--color-text-secondary);">PLANNING</th> <th class="p-3 text-center font-semibold uppercase whitespace-nowrap" style="color: var(--color-text-secondary);">Level</th> </tr>
+                                     </thead>
+
+                                <tbody>
+                                    <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(231, 76, 60, 0.1);"> <td class="p-3 text-center"></td> <td class="p-3 text-center font-bold" style="color: var(--color-icon-red);">Level 4</td> <td class="p-3 text-center font-semibold">90</td> <td class="p-3 text-center" colspan="2">Ops CP</td> <td class="p-3 text-center">Ops Manager</td> <td class="p-3 text-center">Ops Manager</td> <td class="p-3 text-center">Ops Manager</td> <td class="p-3 text-center">Ops Manager</td> <td class="p-3 text-center">Ops Manager</td> <td class="p-3 text-center">Ops Manager</td> <td class="p-3 text-center">Ops Manager</td> <td class="p-3 text-center font-bold whitespace-nowrap" style="color: var(--color-icon-red);">Level 4</td> </tr>
+                                    <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(243, 156, 18, 0.1);"> <td class="p-3 text-center"></td> <td class="p-3 text-center font-bold" style="color: #f39c12;">Level 3</td> <td class="p-3 text-center font-semibold">60</td> <td class="p-3 text-center">SPV Process Engineering</td> <td class="p-3 text-center">SPV / Mgr Equipment</td> <td class="p-3 text-center">SPV Product Engineering</td> <td class="p-3 text-center">SPV Mfg Engineering</td> <td class="p-3 text-center">SPV TEST Engineering</td> <td class="p-3 text-center">Prod Manager</td> <td class="p-3 text-center">Sector Quality Manager</td> <td class="p-3 text-center">IC Manager</td> <td class="p-3 text-center">SPV Planning</td> <td class="p-3 text-center font-bold whitespace-nowrap" style="color: #f39c12;">Level 3</td> </tr>
+                                     <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(241, 196, 15, 0.1);"> <td class="p-3 text-center"></td> <td class="p-3 text-center font-bold" style="color: #f1c40f;">Level 2</td> <td class="p-3 text-center font-semibold">30</td> <td class="p-3 text-center">Process SME's</td> <td class="p-3 text-center">Equipment SME's</td> <td class="p-3 text-center">n/a</td> <td class="p-3 text-center">n/a</td> <td class="p-3 text-center">Test Engineer</td> <td class="p-3 text-center">n/a</td> <td class="p-3 text-center">Quality Eng CFT</td> <td class="p-3 text-center">SPV Line Logistic / Wh Mgr</td> <td class="p-3 text-center">planner</td> <td class="p-3 text-center font-bold whitespace-nowrap" style="color: #f1c40f;">Level 2</td> </tr>
+                                     <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(52, 152, 219, 0.1);"> <td class="p-3 text-center"></td> <td class="p-3 text-center font-bold" style="color: var(--color-icon-blue);">Level 1</td> <td class="p-3 text-center font-semibold">30</td> <td class="p-3 text-center">GL Process</td> <td class="p-3 text-center">GL Equipment</td> <td class="p-3 text-center">Product Engineer</td> <td class="p-3 text-center">SPV Mfg Maintenance</td> <td class="p-3 text-center">Test Tech SPV</td> <td class="p-3 text-center">SPV</td> <td class="p-3 text-center">n/a</td> <td class="p-3 text-center">GL</td> <td class="p-3 text-center">SPV-mfg</td> <td class="p-3 text-center font-bold whitespace-nowrap" style="color: var(--color-icon-blue);">Level 1</td> </tr>
+                                    <tr class="border-b" style="border-color: var(--color-border); background-color: rgba(46, 204, 113, 0.1);"> <td class="p-3 text-center"></td> <td class="p-3 text-center font-bold" style="color: var(--color-accent);"></td> <td class="p-3 text-center font-semibold">0</td> <td class="p-3 text-center">Process Technician</td> <td class="p-3 text-center">Equipment Technician</td> <td class="p-3 text-center">GL</td> <td class="p-3 text-center">Mfg Technician</td> <td class="p-3 text-center">Test Technician</td> <td class="p-3 text-center">GL</td> <td class="p-3 text-center">Quality tech</td> <td class="p-3 text-center">GL</td> <td class="p-3 text-center">GL-Mfg</td> <td class="p-3 text-center"></td> </tr>
+                                    <tr style="background-color: var(--color-bg-secondary);">
+                                        <td class="p-3 text-center"></td> <td class="p-3 text-center font-semibold" style="color: var(--color-text-secondary);"></td> <td class="p-3 text-center"></td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center">Operator</td> <td class="p-3 text-center"></td> </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="qa-card rounded-lg overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-[800px]">
+                                <thead style="background-color: var(--color-bg-primary); border-bottom: 1px solid var(--color-border);">
+                                    <tr>
+                                        <th class="p-3 md:p-4 text-left text-xs font-semibold uppercase" style="color: var(--color-text-secondary);">Incident</th>
+                                        <th class="p-3 md:p-4 text-left text-xs font-semibold uppercase" style="color: var(--color-text-secondary);">Escaladare Către</th>
+                                        <th class="p-3 md:p-4 text-left text-xs font-semibold uppercase" style="color: var(--color-text-secondary);">Comentariu / Procedură</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="escalation-table-body"> ${tableRows}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                     ${isAdmin ? `
+                        <div class="mt-6 flex justify-end">
+                             <button id="add-escalation-row" class="btn-add py-2 px-5 rounded-lg font-semibold text-sm flex items-center" data-key="escalation-add-incident">
+                                 <ion-icon name="add-circle-outline" class="mr-2 text-lg"></ion-icon>
+                                 Adăugare Incident
+                             </button>
+                        </div>
+                     ` : ''}
+                </section>
+            `;
+        }
+
+
+        // --- Funciones ---
+
+        // Función de traducción
+        function applyTranslations(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    // Maneja todas las claves normales del objeto de traducciones
+                    // EXCEPTO las que gestionamos manually
+                    if (key !== 'footer-copyright' && key !== 'footer-motto') {
+                         element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // --- Manejo especial del Footer ---
+            // 1. Copyright (añade símbolo y año)
+            const copyrightEl = document.querySelector('[data-key="footer-copyright"]');
+            if (copyrightEl && translations[lang]["footer-copyright"]) {
+                copyrightEl.innerHTML = `&copy; 2025 ${translations[lang]["footer-copyright"]}`;
+            }
+
+            // 2. Lema Motivacional (obtiene frase aleatoria)
+            const mottoEl = document.querySelector('[data-key="footer-motto"]');
+            if (mottoEl && motivationalQuotes[lang]) {
+                const quotes = motivationalQuotes[lang];
+                const randomIndex = Math.floor(Math.random() * quotes.length);
+                mottoEl.textContent = quotes[randomIndex];
+            }
+            
+            // --- Fin del manejo del footer ---
+
+            document.getElementById('page-title').textContent = translations[lang]['page-title'];
+            // Actualizar textos de idioma y tema en ambos menús
+            if (langDisplayDesktop) langDisplayDesktop.textContent = lang.toUpperCase();
+            // if (langDisplayMobile) langDisplayMobile.textContent = lang.toUpperCase(); // Eliminado
+            if (themeDisplayDesktop && translations[lang][currentTheme]) themeDisplayDesktop.textContent = translations[lang][currentTheme];
+            // if (themeDisplayMobile && translations[lang][currentTheme]) themeDisplayMobile.textContent = translations[lang][currentTheme]; // Eliminado
+            
+            document.body.setAttribute('data-lang', lang);
+            localStorage.setItem('lang', lang);
+        }
+
+        function applyTheme(theme) {
+            const body = document.body;
+            body.classList.remove(...allThemes);
+            body.classList.add(theme);
+            currentTheme = theme;
+            
+             // Actualizar textos de tema en ambos menús
+            if (translations[currentLang] && translations[currentLang][theme]) {
+                 if (themeDisplayDesktop) themeDisplayDesktop.textContent = translations[currentLang][theme];
+                 // if (themeDisplayMobile) themeDisplayMobile.textContent = translations[currentLang][theme]; // Eliminado
+            }
+            localStorage.setItem('theme', theme);
+        }
+        
+        function closeAllDropdowns(exceptThisButton = null) {
+             document.querySelectorAll('[data-action="toggle-dropdown"]').forEach(button => {
+                if(button !== exceptThisButton) {
+                    const dropdownMenu = button.nextElementSibling;
+                    // Asegurar que el elemento exista antes de modificar clases
+                    if (dropdownMenu) {
+                        dropdownMenu.classList.add('hidden');
+                        button.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        }
+
+        // --- Lógica de Navegación y Admin (Actualizado v6.0) ---
+
+        function navigateTo(page) {
+            const pageContainer = document.getElementById('page-container');
+            if (!pageContainer) return;
+
+            // Limpiar listeners específicos de página anterior si existen
+            // (Ejemplo hipotético, si tuviéramos listeners complejos que limpiar)
+            // cleanupPreviousPageListeners(); 
+
+            switch(page) {
+                case 'home':
+                    pageContainer.innerHTML = renderHomePage();
+                    attachHomePageListeners(); // vMod: Añadir listener para tarjeta 13
+                    break;
+                case 'team':
+                    pageContainer.innerHTML = renderTeamPage();
+                    attachTeamPageListeners(); // v6.0: Añadir listeners específicos de la página Team
+                    break;
+                case 'ein-equipment':
+                    pageContainer.innerHTML = renderEinEquipmentPage();
+                    break;
+                case 'qe-cft-340':
+                    pageContainer.innerHTML = renderQeCft340Page();
+                    break;
+                case 'dcs': 
+                    pageContainer.innerHTML = renderDcsPage();
+                    break;
+                 case 'email-templates': 
+                    pageContainer.innerHTML = renderEmailTemplatesPage();
+                    break;
+                case 'escalation': 
+                    pageContainer.innerHTML = renderEscalationPage();
+                    attachEscalationPageListeners(); // v6.0: Añadir listeners específicos de la página Escalation
+                    break;
+                default:
+                    pageContainer.innerHTML = renderHomePage();
+                    attachHomePageListeners(); // vMod: Añadir listener para tarjeta 13 (en fallback)
+                    page = 'home'; // fallback
+            }
+
+            // Actualizar estado activo en sidebar
+            document.querySelectorAll('.sidebar-link[data-page]').forEach(link => {
+                link.classList.remove('active');
+            });
+            // Solo activa el link de la sidebar si existe uno para esa página
+            const activeSidebarLink = document.querySelector(`.sidebar-link[data-page="${page}"]`);
+            if (activeSidebarLink) {
+                 activeSidebarLink.classList.add('active');
+            }
+
+            // Re-aplicar traducciones al nuevo contenido
+            applyTranslations(currentLang);
+            // Asegurar que el lema se actualice (ya que está en el header, fuera del pageContainer)
+             // Llama siempre para actualizar el header y otros elementos fuera de pageContainer
+            applyTranslations(currentLang);
+        }
+
+        function attachTeamPageListeners() {
+            const saveButton = document.getElementById('save-team-data');
+            if (saveButton) {
+                saveButton.addEventListener('click', () => {
+                    saveTeamData();
+                    const msgEl = document.getElementById('save-message');
+                    if (msgEl) {
+                        msgEl.textContent = translations[currentLang]['team-data-saved-success'] || 'Data saved successfully!';
+                        setTimeout(() => { msgEl.textContent = ''; }, 3000);
+                    }
+                });
+            }
+        }
+
+        // vMod: Añadir listener para la tarjeta de Value Check
+        function attachHomePageListeners() {
+            const valueCheckCard = document.getElementById('show-value-check-info');
+            if (valueCheckCard) {
+                valueCheckCard.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevenir que el href="#" navegue
+                    showInfoModal(true);
+                });
+            }
+        }
+
+        // --- v6.0: Nuevas funciones para la página de Escalación ---
+        function attachEscalationPageListeners() {
+            const saveButton = document.getElementById('save-escalation-data');
+            if (saveButton) {
+                saveButton.addEventListener('click', () => {
+                    saveEscalationData();
+                    const msgEl = document.getElementById('save-escalation-message');
+                    if (msgEl) {
+                        msgEl.textContent = translations[currentLang]['escalation-data-saved-success'] || 'Escalation data saved!';
+                        setTimeout(() => { msgEl.textContent = ''; }, 3000);
+                    }
+                });
+            }
+
+            const addButton = document.getElementById('add-escalation-row');
+            if (addButton) {
+                addButton.addEventListener('click', addEscalationRow);
+            }
+        }
+
+        function saveEscalationData() {
+            const tableBody = document.getElementById('escalation-table-body');
+            if (!tableBody) return;
+
+            const rows = tableBody.querySelectorAll('tr.escalation-row');
+            const newEscalationData = [];
+            rows.forEach(row => {
+                const incidentCell = row.querySelector('[data-field="incident"]');
+                const escalationCell = row.querySelector('[data-field="escalation"]');
+                const commentCell = row.querySelector('[data-field="comment"]');
+
+                // Solo guardar si todas las celdas existen
+                if (incidentCell && escalationCell && commentCell) {
+                    newEscalationData.push({
+                        incident: incidentCell.textContent.trim(),
+                        escalation: escalationCell.textContent.trim(),
+                        comment: commentCell.textContent.trim(),
+                    });
+                }
+            });
+            escalationData = newEscalationData; // Actualizar variable global
+            localStorage.setItem('escalationData', JSON.stringify(escalationData)); // Guardar en localStorage
+        }
+
+        function addEscalationRow() {
+            const tableBody = document.getElementById('escalation-table-body');
+            if (!tableBody) return;
+
+            const newRow = document.createElement('tr');
+            newRow.classList.add('border-b', 'escalation-row');
+            newRow.style.borderColor = 'var(--color-border)';
+
+            newRow.innerHTML = `
+                <td class="p-3 md:p-4 align-top text-sm font-medium" style="color: var(--color-text-primary); min-width: 250px;" data-field="incident" contenteditable="true"></td>
+                <td class="p-3 md:p-4 align-top text-sm font-semibold" style="color: var(--color-accent); min-width: 150px;" data-field="escalation" contenteditable="true"></td>
+                <td class="p-3 md:p-4 align-top text-sm" style="color: var(--color-text-secondary); min-width: 400px;" data-field="comment" contenteditable="true"></td>
+            `;
+            tableBody.appendChild(newRow);
+            
+            // Opcional: Hacer scroll hasta la nueva fila
+            newRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Opcional: Poner el foco en la primera celda nueva
+             const firstCell = newRow.querySelector('td');
+            if(firstCell) firstCell.focus();
+        }
+        // --- Fin v6.0 ---
+
+
+        function saveTeamData() {
+            // 1. Guardar datos de Ingenieros CFT (v2.1)
+            const cftCards = document.querySelectorAll('#cft-card-container .contact-card');
+            const newCftData = [];
+            cftCards.forEach(card => {
+                newCftData.push({
+                    engineer: card.querySelector('[data-field="engineer"]').textContent.trim(),
+                    customer: card.querySelector('[data-field="customer"]').textContent.trim(),
+                    phone: card.querySelector('[data-field="phone"]').textContent.trim(),
+                    backup: card.querySelector('[data-field="backup"]').textContent.trim(),
+                });
+            });
+            cftData = newCftData; // Actualizar variable global
+            localStorage.setItem('cftData', JSON.stringify(cftData)); // Guardar como cftData
+
+            // 2. Guardar datos de Ingenieros Supplier (v2.1 NUEVO)
+            const supplierCards = document.querySelectorAll('#supplier-card-container .contact-card');
+            const newSupplierData = [];
+            supplierCards.forEach(card => {
+                newSupplierData.push({
+                    engineer: card.querySelector('[data-field="engineer"]').textContent.trim(),
+                    customer: card.querySelector('[data-field="customer"]').textContent.trim(),
+                    phone: "N/A", // Supplier no tiene teléfono visible
+                    backup: card.querySelector('[data-field="backup"]').textContent.trim(),
+                });
+            });
+            supplierData = newSupplierData; // Actualizar variable global
+            localStorage.setItem('supplierData', JSON.stringify(supplierData)); // Guardar como supplierData
+
+
+            // 3. Guardar datos de Management (v2.0: adaptado a tarjetas)
+            const mgmtCards = document.querySelectorAll('#management-card-container .contact-card');
+            const newMgmtData = [];
+            mgmtCards.forEach(card => {
+                 newMgmtData.push({
+                    name: card.querySelector('[data-field="name"]').textContent.trim(),
+                    phone: card.querySelector('[data-field="phone"]').textContent.trim(),
+                    role: card.querySelector('[data-field="role"]').textContent.trim(),
+                });
+            });
+            managementData = newMgmtData; // Actualizar variable global
+            localStorage.setItem('managementData', JSON.stringify(managementData));
+        }
+
+        function loadDataFromStorage() {
+            // v2.0: Cargar estado de login
+            isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            isAdmin = isLoggedIn; // Simple auth: si está logueado, es admin
+            
+            // Cargar datos CFT (v2.1)
+            //const storedCftData = localStorage.getItem('cftData');
+            //if (storedCftData) {
+            //    try { cftData = JSON.parse(storedCftData); } catch(e) { console.error("Error parsing cftData:", e); }
+            //}
+            
+            // Cargar datos Supplier (v2.1 NUEVO)
+            // const storedSupplierData = localStorage.getItem('supplierData');
+            //if (storedSupplierData) {
+            //     try { supplierData = JSON.parse(storedSupplierData); } catch(e) { console.error("Error parsing supplierData:", e); }
+            //}
+
+            // Cargar datos Management
+            //const storedMgmtData = localStorage.getItem('managementData');
+            //if (storedMgmtData) {
+            //    try { managementData = JSON.parse(storedMgmtData); } catch(e) { console.error("Error parsing managementData:", e); }
+            //}
+
+            // v6.0: Cargar datos Escalación
+            //const storedEscalationData = localStorage.getItem('escalationData');
+            // if (storedEscalationData) {
+            //     try { escalationData = JSON.parse(storedEscalationData); } catch(e) { console.error("Error parsing escalationData:", e); }
+            //}
+        }
+        
+        // --- Lógica de Autenticación (v2.0) ---
+        
+        function showLoginModal(show) {
+            if (show) {
+                loginError.textContent = '';
+                loginUsername.value = '';
+                loginPassword.value = '';
+                loginModalOverlay.classList.remove('hidden');
+                 // Forzar reflow para reiniciar animación si es necesario
+                void loginModalOverlay.offsetWidth; 
+                loginModalOverlay.classList.add('open');
+                loginUsername.focus();
+            } else {
+                loginModalOverlay.classList.remove('open');
+                // Escuchar el final de la transición antes de ocultar
+                loginModalOverlay.addEventListener('transitionend', function handler() {
+                    loginModalOverlay.classList.add('hidden');
+                    loginModalOverlay.removeEventListener('transitionend', handler); // Limpiar listener
+                }, { once: true }); // Asegura que el listener se ejecute solo una vez
+            }
+        }
+
+        // vMod: Función para mostrar/ocultar el modal de información
+        function showInfoModal(show) {
+            if (show) {
+                infoModalOverlay.classList.remove('hidden');
+                 // Forzar reflow para reiniciar animación si es necesario
+                void infoModalOverlay.offsetWidth; 
+                infoModalOverlay.classList.add('open');
+            } else {
+                infoModalOverlay.classList.remove('open');
+                // Escuchar el final de la transición antes de ocultar
+                infoModalOverlay.addEventListener('transitionend', function handler() {
+                    infoModalOverlay.classList.add('hidden');
+                    infoModalOverlay.removeEventListener('transitionend', handler); // Limpiar listener
+                }, { once: true }); // Asegura que el listener se ejecute solo una vez
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const user = loginUsername.value;
+            const pass = loginPassword.value;
+
+            // --- Autenticación Hardcodeada ---
+            // IMPORTANTE: Esto es inseguro para producción. Usar un sistema real.
+            if (user === 'admin' && pass === 'admin123') {
+                isLoggedIn = true;
+                isAdmin = true;
+                localStorage.setItem('isLoggedIn', 'true');
+
+                updateUserIcon();
+                showLoginModal(false);
+                // v6.0: Recargar la página actual para reflejar el estado de admin
+                const currentPage = document.querySelector('.sidebar-link.active')?.dataset.page || 'home';
+                navigateTo(currentPage); 
+            } else {
+                 loginError.textContent = translations[currentLang]['login-error-message'] || 'Utilizator sau parolă incorectă.'; // v6.0: Usar traducción
+            }
+        }
+
+        function handleLogout() {
+            isLoggedIn = false;
+            isAdmin = false;
+            localStorage.removeItem('isLoggedIn');
+            updateUserIcon();
+            // v6.0: Recargar la página actual para reflejar el estado no-admin
+             const currentPage = document.querySelector('.sidebar-link.active')?.dataset.page || 'home';
+             if(currentPage === 'team' || currentPage === 'escalation' || currentPage === 'home') { // MODIFICADO: Recargar home también
+                 navigateTo(currentPage); // Recargar si es una página editable o home
+             } else {
+                 navigateTo('home'); // Ir a home si no es editable
+             }
+        }
+
+        function updateUserIcon() {
+            if (isLoggedIn) {
+                userMenuIcon.setAttribute('name', 'log-out-outline');
+                 userMenuIcon.classList.add('text-accent'); // v6.0: Añadir color verde al icono de logout
+            } else {
+                userMenuIcon.setAttribute('name', 'person-circle-outline');
+                userMenuIcon.classList.remove('text-accent'); // v6.0: Quitar color verde
+            }
+        }
+
+
+        // --- Event Listeners ---
+
+        // Mobile Menu (Drawer) - ELIMINADO
+        /*
+        mobileMenuOpenBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('hidden');
+             // Forzar reflow
+            void mobileMenuDrawer.offsetWidth;
+            mobileMenuDrawer.classList.add('open');
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            // Iniciar transición de cierre
+             mobileMenuDrawer.classList.remove('open');
+             // Ocultar overlay después de la transición del drawer
+             mobileMenuDrawer.addEventListener('transitionend', function handler() {
+                mobileMenuOverlay.classList.add('hidden');
+                 mobileMenuDrawer.removeEventListener('transitionend', handler);
+             }, { once: true });
+        });
+        */
+
+
+        // Dropdowns (Acordeón) y Navegación de Página (v2.2)
+        document.addEventListener('click', (event) => {
+            
+            // Lógica de Navegación de Página (v1.9)
+            const pageLink = event.target.closest('[data-page]');
+            if (pageLink) {
+                event.preventDefault();
+                const page = pageLink.dataset.page;
+                navigateTo(page);
+                // Cerrar menú móvil si está abierto - ELIMINADO
+                /*
+                if (mobileMenuDrawer.classList.contains('open')) {
+                    mobileMenuDrawer.classList.remove('open');
+                     mobileMenuDrawer.addEventListener('transitionend', function handler() {
+                        mobileMenuOverlay.classList.add('hidden');
+                         mobileMenuDrawer.removeEventListener('transitionend', handler);
+                     }, { once: true });
+                }
+                */
+                closeAllDropdowns(); // Cerrar dropdowns del sidebar
+                return; // Detener para no interferir con otros listeners
+            }
+            
+            // Lógica de Dropdown
+            const dropdownButton = event.target.closest('[data-action="toggle-dropdown"]');
+            if (dropdownButton) {
+                event.stopPropagation(); // Prevenir que el click cierre el dropdown inmediatamente
+                const dropdownMenu = dropdownButton.nextElementSibling;
+                const isHidden = dropdownMenu.classList.contains('hidden');
+                
+                // Cerrar otros dropdowns ANTES de abrir/cerrar el actual
+                closeAllDropdowns(dropdownButton); 
+                
+                if (isHidden) {
+                    dropdownMenu.classList.remove('hidden');
+                    dropdownButton.setAttribute('aria-expanded', 'true');
+                    // Opcional: Rotar icono de flecha
+                    // dropdownButton.querySelector('ion-icon[name*="chevron"]').setAttribute('name', 'chevron-up-outline');
+                } else {
+                     dropdownMenu.classList.add('hidden');
+                     dropdownButton.setAttribute('aria-expanded', 'false');
+                      // Opcional: Rotar icono de flecha
+                     // dropdownButton.querySelector('ion-icon[name*="chevron"]').setAttribute('name', 'chevron-down-outline');
+                }
+                return; // Detener
+            }
+
+            // Cerrar dropdowns si se hace clic fuera de un botón de dropdown o su menú
+            if (!event.target.closest('[data-action="toggle-dropdown"]') && !event.target.closest('.dropdown-menu')) {
+                 closeAllDropdowns();
+            }
+        });
+
+        // --- Listeners de Login (v2.0) ---
+        userMenuBtn.addEventListener('click', () => {
+            if (isLoggedIn) {
+                handleLogout();
+            } else {
+                showLoginModal(true);
+            }
+        });
+
+        loginModalCloseBtn.addEventListener('click', () => showLoginModal(false));
+        // Cerrar modal si se hace click en el overlay (fondo oscuro)
+        loginModalOverlay.addEventListener('click', (event) => {
+            if (event.target === loginModalOverlay) {
+                showLoginModal(false);
+            }
+        });
+        loginForm.addEventListener('submit', handleLogin); // Capturar Enter en el form
+        loginSubmitBtn.addEventListener('click', handleLogin); // Capturar click en el botón
+
+        // --- Listeners de Modal Info (vMod) ---
+        if (infoModalCloseBtn) {
+            infoModalCloseBtn.addEventListener('click', () => showInfoModal(false));
+        }
+        if (infoModalOkBtn) {
+            infoModalOkBtn.addEventListener('click', () => showInfoModal(false));
+        }
+        if (infoModalOverlay) {
+            infoModalOverlay.addEventListener('click', (event) => {
+                if (event.target === infoModalOverlay) {
+                    showInfoModal(false);
+                }
+            });
+        }
+
+
+        // Cambiar Idioma
+        document.querySelectorAll('[data-lang-code]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = e.target.closest('[data-lang-code]').getAttribute('data-lang-code'); // Asegurar obtener el atributo correcto
+                applyTranslations(lang);
+                closeAllDropdowns(); // Cerrar dropdown de idioma
+                 // Cerrar menú móvil si está abierto - ELIMINADO
+                /*
+                if (mobileMenuDrawer.classList.contains('open')) {
+                    mobileMenuDrawer.classList.remove('open');
+                     mobileMenuDrawer.addEventListener('transitionend', function handler() {
+                        mobileMenuOverlay.classList.add('hidden');
+                         mobileMenuDrawer.removeEventListener('transitionend', handler);
+                     }, { once: true });
+                }
+                */
+            });
+        });
+
+        // Cambiar Tema
+        document.querySelectorAll('[data-theme-name]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                 const theme = e.target.closest('[data-theme-name]').getAttribute('data-theme-name'); // Asegurar obtener el atributo correcto
+                applyTheme(theme);
+                closeAllDropdowns(); // Cerrar dropdown de tema
+                 // Cerrar menú móvil si está abierto - ELIMINADO
+                 /*
+                 if (mobileMenuDrawer.classList.contains('open')) {
+                    mobileMenuDrawer.classList.remove('open');
+                     mobileMenuDrawer.addEventListener('transitionend', function handler() {
+                        mobileMenuOverlay.classList.add('hidden');
+                         mobileMenuDrawer.removeEventListener('transitionend', handler);
+                     }, { once: true });
+                }
+                */
+            });
+        });
+
+// Inicializar al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+             // Cargar traducciones, datos, estado de login, etc.
+            loadDataFromStorage(); 
+            
+            // Aplicar tema guardado
+            applyTheme(currentTheme); 
+             // Actualizar icono de usuario basado en si está logueado
+            updateUserIcon(); 
+
+            // Aplicar traducciones iniciales (esto debe hacerse ANTES de navigateTo
+            // para que los elementos estáticos fuera de pageContainer se traduzcan)
+             applyTranslations(currentLang);
+
+            // Cargar la página de inicio por defecto (o la última visitada si la guardáramos)
+            navigateTo('home'); 
+            
+            // Volver a aplicar traducciones DESPUÉS de navigateTo para asegurar que
+            // el contenido dinámico dentro de pageContainer también se traduzca.
+             applyTranslations(currentLang);
+        });
+
+    </script>
+
+</body>
+</html>
